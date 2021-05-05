@@ -1,0 +1,245 @@
+# Ref
+https://www.django-rest-framework.org/tutorial/quickstart/
+https://www.youtube.com/watch?v=0iB5IPoTDts&t
+
+# Using Windows terminal
+
+# Install Django and Django REST framework into local
+pip install django
+pip install djangorestframework
+
+# Create local Django Project
+django-admin startproject servicedelivery
+
+# Add requirements.txt
+Django==3.1.3
+djangorestframework==3.12.2
+mysqlclient==2.0.1
+django-mysql==3.9
+django-cors-headers==3.5.0
+django-requestlogs==0.2.3
+django-ipware==3.0.2
+python-dateutil==2.8.1
+
+# Create Dockerfile
+FROM python:3.9
+ENV PYTHONUNBUFFERED 1
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+COPY . /app
+
+CMD python manage.py runserver 0.0.0.0:8000
+
+#Create docker-compose.yml
+version: '3.8'
+services:
+    sd_api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8020:8000
+        volumes:
+            - .:/app
+		depends_on: 
+            - sd_db
+    sd_db:
+        image: mysql/mysql-server
+        restart: always
+        environment:
+            MYSQL_DATABASE: sd_db
+            MYSQL_ROOT_PASSWORD: Tele2SDdbPa##w0rd
+        ports:
+            - "33067:3306"
+networks:
+    default:
+        name: tele2corp
+
+# Run in terminal
+docker compose build
+docker compose up
+
+# Check if accounts_api is up and running on same network as mysql db
+docker ps --filter "network=tele2corp"
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS                    PORTS                                      NAMES
+80855e4c591a   servicedelivery_sd_api   "/bin/sh -c 'python …"   51 seconds ago   Up 50 seconds             0.0.0.0:8020->8000/tcp                     servicedelivery_sd_api_1
+4a7dd4633b35   mysql/mysql-server       "/entrypoint.sh mysq…"   51 seconds ago   Up 50 seconds (healthy)   33060-33061/tcp, 0.0.0.0:33067->3306/tcp   servicedelivery_sd_db_1
+
+# Create DB User for API
+docker exec -it servicedelivery_sd_db_1 mysql -uroot -p
+
+CREATE USER 'sdadmin'@'%' IDENTIFIED WITH mysql_native_password BY 'Tele2SDdbPa##w0rd';
+GRANT ALL ON sd_db.* TO 'sdadmin'@'%';
+FLUSH PRIVILEGES;
+
+docker exec -it servicedelivery_sd_db_1 mysql -usdadmin -p
+
+# Create docker Django App
+# While container is running open terminal
+docker compose exec sd_api bash
+python manage.py startapp servicedelivery_api
+
+# Modify settings.py
+	# Add below in INSTALLED_APPS
+		'rest_framework',
+		'corsheaders',
+		'servicedelivery_api',
+	# Add below in MIDDLEWARE
+		'corsheaders.middleware.CorsMiddleware',
+	# Add below constant
+	CORS_ORIGIN_ALLOW_ALL = True
+	# Change DATABASES to below
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.mysql',
+			'NAME': 'sd_db',
+			'USER': 'sdadmin',
+			'PASSWORD': 'Tele2SDdbPa##w0rd',
+			'HOST': 'sd_db',
+			'PORT': '3306',
+		}
+	}
+	
+	
+# Migrating models
+docker compose exec sd_api bash
+python manage.py makemigrations
+python manage.py migrate
+	
+# Create Super User
+docker compose exec sd_api bash
+python manage.py createsuperuser
+sdadmin
+Tele2SDap!Pa##w0rd
+
+# verify by logging into http://localhost:8020/admin/
+
+# Enable Token Authentication
+# settings.py
+	# Add below in INSTALLED_APPS
+		'rest_framework.authtoken',
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
+# Migrate DB
+python manage.py migrate
+		
+# Add below in View class
+from rest_framework.permissions import IsAuthenticated
+
+# At the start of your class
+permission_classes = (IsAuthenticated,)
+
+# Create new super user
+python manage.py createsuperuser --username sdapiservice --email oach@tele2.com
+Tele2SDap!Pa##w0rd
+
+# Get the token
+python manage.py drf_create_token oach
+Token 512125d89105537b3ed038c29f54c2bc7a7812ad
+
+# To regenerate token
+python manage.py drf_create_token -r oach
+
+# Create API Request endpoint
+accounts_api/urls.py
+
+from rest_framework.authtoken.views import obtain_auth_token
+
+path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
+
+# Use post to get Token
+Endpoint: http://localhost:8001/api/api-token-auth/
+Method: POST
+Form data:
+	username: sdapiservice
+	password: Tele2SDap!Pa##w0rd
+	
+Token 512125d89105537b3ed038c29f54c2bc7a7812ad	
+	
+# Add logging
+# Add in requirements.txt
+django-requestlogs==0.2.3
+django-ipware==3.0.2
+
+# Add middleware.py under accounts_api
+class CustomHeaderMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        response['X-servicedelivery-Response-Id'] = request.META.get('HTTP_X_servicedelivery_REQUEST_ID')
+        return response
+
+# settings.py
+# In MIDDLEWARE
+'requestlogs.middleware.RequestLogsMiddleware',
+'requestlogs.middleware.RequestIdMiddleware',
+'servicedelivery_api.middleware.CustomHeaderMiddleware',
+# In REST_FRAMEWORK
+'EXCEPTION_HANDLER': 'requestlogs.views.exception_handler',
+# Add below
+REQUESTLOGS = {
+    'STORAGE_CLASS': 'requestlogs.storages.LoggingStorage',
+    'ENTRY_CLASS': 'requestlogs.entries.RequestLogEntry',
+    'SERIALIZER_CLASS': 'requestlogs.storages.RequestIdEntrySerializer',
+    'SECRETS': ['password', 'token'],
+    'ATTRIBUTE_NAME': '_requestlog',
+    'METHODS': ('GET', 'PUT', 'PATCH', 'POST', 'DELETE'),
+    'REQUEST_ID_HTTP_HEADER': 'HTTP_X_SERVICEDELIVERY_REQUEST_ID',
+    'REQUEST_ID_ATTRIBUTE_NAME': 'request_id',
+}
+# Add below
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'requestlogs_to_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': '/app/log/requestlogs.log',
+        },
+        'root': {
+            'class': 'logging.StreamHandler',
+            'filters': ['request_id_context'],
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['root'],
+            'level': 'DEBUG',
+        },
+        'requestlogs': {
+            'handlers': ['requestlogs_to_file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+    'filters': {
+        'request_id_context': {
+            '()': 'requestlogs.logging.RequestIdContext',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s %(levelname)s %(request_id)s %(module)s:%(lineno)s %(message)s'
+        },
+    },
+}
+# Add below directory structure and empty file under project folder
+log/requestlogs.log
+# Add below header to Postman
+# Pre-request script
+let guid = pm.variables.replaceIn('{{$guid}}')
+let formattedGuid = guid.replace(/-/g, '')
+pm.globals.set("newGuid", formattedGuid)
+# Header
+Authorization: Token 932f9e46bfca3472e4745bce67763093cbf7778a
+X-servicedelivery-Request-Id: {{newGuid}}

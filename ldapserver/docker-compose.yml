@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+    apache_ds:
+        image: itzg/apacheds
+        ports:
+            - "389:10389"
+networks:
+    default:
+        name: tele2corp

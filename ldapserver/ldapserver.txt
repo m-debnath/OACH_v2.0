@@ -1,0 +1,28 @@
+docker run -d --name apacheds -p 389:10389 itzg/apacheds
+
+docker container start apacheds
+docker container stop apacheds
+
+admin
+secret
+
+DN: uid=mukudebn,ou=people,ou=Siebel,o=t2,dc=example,dc=com
+mukudebn
+Myloginpwd12*
+
+DN: uid=johndoe,ou=people,ou=Siebel,o=t2,dc=example,dc=com
+johndoe
+J0hndo3
+
+DN: uid=APPUSER_ALL,ou=m2m,ou=Siebel,o=t2,dc=example,dc=com
+APPUSER_ALL
+ldaPadm1nPa55w0rd
+
+
+LDAP_PROVIDER_URL       = 172.18.0.1
+LDAP_PORT               = 389
+LDAP_USER_BASEDN        = ou=people,ou=Siebel,o=t2,dc=example,dc=com
+LDAP_LOGIN_SEARCH_FIELD = uid
+LDAP_ACC                = uid=APPUSER_ALL,ou=m2m,ou=Siebel,o=t2,dc=example,dc=com
+LDAP_PASS               = ldaPadm1nPa55w0rd
+

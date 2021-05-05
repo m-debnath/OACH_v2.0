@@ -1,0 +1,1423 @@
+#t2-accform-applet {
+	font-size: 12px;
+	height: 263px;
+	background-color: #fff;
+	color: #1e1e1e;
+	position: relative
+}
+
+#t2-accform-applet>div.body>div.loader {
+	display: flex;
+	height: 203px;
+	width: inherit;
+	background-color: #fff;
+	font-size: 16px;
+	color: #a9a9a9;
+	justify-content: center;
+	align-items: center
+}
+
+#t2-accform-applet div.field {
+	display: flex;
+	margin-bottom: 8px
+}
+
+#t2-accform-applet div.fieldlg {
+	display: flex;
+	margin-bottom: 4px
+}
+
+#t2-accform-applet div.fieldlg-bottom {
+	margin-bottom: 30px
+}
+
+#t2-accform-applet div.fieldlg1 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	text-overflow: ellipsis;
+	overflow: hidden
+}
+
+.legal_guardian_tooltip {
+	padding-left: 2px;
+	padding-right: 8px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap
+}
+
+.my-tele2-tooltip {
+	padding-left: 2px;
+	padding-right: 8px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+}
+
+.my-tele2-tooltip.hidden{
+	display: none;
+}
+
+.indicator-tooltip.centered-text {
+    text-align: center;
+}
+
+.type_guardian_tooltip {
+	display: inline
+}
+
+#t2-accform-applet div.field.no-margin {
+	margin: 0
+}
+
+#t2-accform-applet div.field-row {
+	display: flex;
+}
+
+#t2-accform-applet span.row {
+	margin-bottom: 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 375px
+}
+
+#t2-accform-applet span.row.lth {
+	max-width: 280px
+}
+
+#t2-accform-applet span.row.lth.ssn {
+	max-width: 230px
+}
+
+#t2-accform-applet span.row.eti {
+	max-width: 355px
+}
+
+@media (max-width:1680px) {
+	#t2-accform-applet span.row {
+		max-width: 280px
+	}
+}
+
+#t2-accform-applet span.contact-ssn {
+	width: auto;
+	margin-left: 5px
+}
+
+#t2-accform-applet span.lang {
+	margin-left: 5px
+}
+
+#t2-accform-applet span.row:not(.link):last-child {
+	margin-bottom: 0
+}
+
+#t2-accform-applet span.row.nolink {
+	padding-bottom: 4px;
+}
+
+#t2-accform-applet span.link:hover {
+	color: #009EE0;
+	text-decoration: underline;
+	cursor: pointer
+}
+
+#t2-accform-applet span.label {
+	font-family: 'Tele2 Slab Web Bold';
+	margin-right: 4px
+}
+
+#t2-accform-applet span.align-center {
+	align-self: center
+}
+
+@media all and (max-height:920px) {
+	#t2-accform-applet {
+		height: 255px
+	}
+	#t2-accform-applet>div.body>div.loader {
+		height: 195px
+	}
+	#t2-accform-applet div.field {
+		margin-bottom: 3px
+	}
+}
+
+#t2-accform-applet>div.header {
+	background: #333;
+	height: 60px;
+	display: flex
+}
+
+#t2-accform-applet>div.header>div.left {
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 7px 0 7px 15px;
+	display: flex;
+	min-width: 0
+}
+
+#t2-accform-applet>div.header>div.left>div.details {
+	position: relative
+}
+
+#t2-accform-applet>div.body>div.main {
+	display: flex;
+	padding: 17px 14px;
+	justify-content: flex-start
+}
+
+#t2-accform-applet>div.body>div.main>div.panel.main-left {
+	width: 60%
+}
+
+#t2-accform-applet>div.body>div.main>div.panel.main-right {
+	width: 40%
+}
+
+#t2-accform-applet div.panel {
+	display: flex;
+	flex-direction: column
+}
+
+#t2-accform-applet>div.header>div.left>div.title {
+	font-size: 24px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 340px;
+	font-family: 'Tele2 Slab Web Bold';
+	color: #fff
+}
+
+#t2-accform-applet>div.header>div.right {
+	display: flex;
+	flex: none;
+	margin-left: auto
+}
+
+#t2-accform-applet>div.header>div.details {
+	padding-top: 3px;
+	display: flex
+}
+
+#t2-primary-contact-label {
+	align-self: flex-start;
+	white-space: nowrap
+}
+
+#t2-accform-applet>div.header>div.center {
+	margin-left: 20px;
+	display: flex
+}
+
+@media all and (max-width:1680px) {
+	#t2-accform-applet>div.header>div.left>div.title {
+		max-width: 215px
+	}
+	#t2-accform-applet>div.header>div.center {
+		margin-left: 10px
+	}
+}
+
+#t2-accform-applet .acc-indicators {
+	font-family: FontAwesome;
+	font-size: 36px;
+	color: #009EE0;
+	align-self: center
+}
+
+.indicator-tooltip,
+.indicator-tooltip span.label {
+	font-family: 'Tele2 Slab Web';
+	text-shadow: none
+}
+
+.indicator-tooltip span.label {
+	font-family: 'Tele2 Slab Web Bold';
+}
+
+#t2-accform-applet .acc-indicators .indicator {
+	margin-left: 16px
+}
+
+@media (max-width:1680px) {
+	#t2-accform-applet .acc-indicators {
+		font-size: 30px
+	}
+	#t2-accform-applet .acc-indicators .indicator {
+		margin-left: 10px
+	}
+}
+
+#t2-accform-applet .acc-indicators .indicator:first-child {
+	margin-left: 0
+}
+
+#t2-accform-applet .orange {
+	color: #FF9000
+}
+
+#t2-accform-applet .red {
+	color: red
+}
+
+#t2-accform-applet .blue {
+	color: #009EE0
+}
+
+#t2-accform-applet .green {
+	color: #43B02A
+}
+
+#t2-accform-applet .grey {
+	color: #CCC
+}
+
+#t2-accform-applet .acc-indicators .indicator.type.business:before {
+	content: '\f1ad'
+}
+
+#t2-accform-applet .acc-indicators .indicator.type.residential:before {
+	content: '\f015'
+}
+
+#t2-accform-applet .acc-indicators .indicator.status.active:before {
+	content: '\f058'
+}
+
+#t2-accform-applet .acc-indicators .indicator.status.inactive:before {
+	content: '\f057'
+}
+
+#t2-accform-applet .acc-indicators .indicator.status.suspended:before {
+	content: '\f056'
+}
+
+#t2-accform-applet .acc-indicators .indicator.status.treatment:before {
+	content: '\f06a'
+}
+
+#t2-accform-applet .acc-indicators .indicator.status.prospect:before {
+	content: '\f05b'
+}
+
+#t2-accform-applet .acc-indicators .indicator.good-standing:before {
+	content: '\f087'
+}
+
+#t2-accform-applet .acc-indicators .indicator.bad-debt:before {
+	content: '\f023'
+}
+
+#t2-accform-applet .acc-indicators .indicator.bankruptcy:before {
+	content: '\f155'
+}
+
+#t2-accform-applet .acc-indicators .indicator.secret:before {
+	content: '\f21b'
+}
+
+#t2-accform-applet .acc-indicators .indicator.barring:before {
+	content: '\f05e';
+	color: red
+}
+
+#t2-accform-applet .acc-indicators .indicator.legal-guardian {
+	font-size: 30px;
+	margin-top: 6px
+}
+
+#t2-accform-applet .acc-indicators .indicator.legal-guardian.shield:before {
+	font-size: 32px;
+	content: '\f132';
+	color: #FF7D00
+}
+
+#t2-accform-applet .acc-indicators .indicator.legal-guardian.parent:before {
+	font-size: 32px;
+	content: '\f183'
+}
+
+#t2-accform-applet .acc-indicators .indicator.legal-guardian .child:before {
+	font-size: .8em;
+	content: '\f1ae'
+}
+
+#t2-accform-applet .acc-indicators .indicator.nld-treatments:before {
+	content: '\f12a';
+	color: red
+}
+
+.indicator-tooltip {
+	font-size: 14px;
+	color: #fff;
+	max-width: 400px;
+	align-self: center
+}
+
+.indicator-tooltip .row {
+	text-align: center
+}
+
+.breakWord {
+	word-break: break-word
+}
+
+.indicator-tooltip span.link {
+	color: #009EE0;
+	cursor: pointer;
+	text-decoration: underline;
+	text-shadow: none
+}
+
+.indicator-tooltip .bar-row {
+	margin-bottom: 4px
+}
+
+#t2-accform-applet div.field.brands,
+.indicator-tooltip .bar-row:last-child {
+	margin-bottom: 0
+}
+
+#t2-accform-applet .field.icon::before {
+	font-family: FontAwesome;
+	font-size: 15px;
+	padding-right: 4px
+}
+
+#t2-accform-applet div.field.icon.group-id:before {
+	content: '\f0c0'
+}
+
+#t2-accform-applet div.field.icon.tax-exempt:before {
+	content: '\f071';
+	margin-top: -2px
+}
+
+#t2-accform-applet div.field.brands>div.brands>span.brand>img {
+	margin-top: -10px
+}
+
+#t2-accform-applet .greyed {
+	color: #A9A9A9;
+	padding: 0 5px
+}
+
+#t2-accform-applet>div.body>div.main>div.main-right>div.field.secret-a>input,
+#t2-accform-applet>div.body>div.main>div.main-right>div.field.secret-q>input {
+	font-family: 'Tele2 Slab Web';
+	font-size: 12px;
+	color: #1e1e1e;
+	background-color: #f4f4f4;
+	border: 0;
+	width: 150px
+}
+
+#t2-accform-applet>div.body>div.main>div.main-right>div.field.secret-a.aligned>span.label,
+#t2-accform-applet>div.body>div.main>div.main-right>div.field.secret-q.aligned>span.label {
+	min-width: 80px
+}
+
+#t2-sq-popup {
+	font-family: 'Tele2 Slab Web'
+}
+
+#t2-sq-popup>div.t2-sq-popup-header>div.t2-sq-popup-title {
+	font-family: Arial;
+	font-weight: 700;
+	margin-left: 17px
+}
+
+#t2-sq-popup>div.t2-sq-popup-header>div.t2-sq-popup-title:hover {
+	cursor: default;
+	color: #fff
+}
+
+#t2-sq-popup>div.t2-sq-popup-body {
+	color: #1E1E1E;
+	font-size: 13px;
+	display: grid;
+	grid-template-columns: 108px auto;
+	padding: 15px
+}
+
+#t2-sq-popup>div.t2-sq-popup-body>div.t2-sq-popup-col {
+	grid-gap: 15px;
+	display: grid
+}
+
+#t2-sq-popup>div.t2-sq-popup-body>div.t2-sq-popup-col>div.t2-sq-popup-label {
+	font-family: 'Tele2 Slab Web Bold'
+}
+
+#t2-sq-popup>div.t2-sq-popup-header>div.t2-sq-popup-close {
+	position: absolute;
+	right: 17px;
+	color: #fff;
+	font-size: 25px;
+	font-weight: 100;
+	cursor: pointer
+}
+
+#t2-sq-popup>div.t2-sq-popup-header>div.t2-sq-popup-close:hover {
+	color: #FF9000
+}
+
+#t2-accform-applet .wrap {
+	width: 55%;
+	margin-top: -3px;
+	display: flex
+}
+
+#t2-accform-applet input.t2_dropdown {
+	height: 20px;
+	border-radius: 2px;
+	border: 1px solid #a9a9a9;
+	font-family: 'Tele2 Slab Web';
+	font-size: 12px;
+	padding-left: 5px;
+	pointer-events: none;
+	width: 100%
+}
+
+#t2-accform-applet .t2_dropdown-menu {
+	position: absolute;
+	margin-top: 24px;
+	z-index: 9999;
+	outline: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 245px;
+	width: 22%
+}
+
+#t2-accform-applet .t2_dropdown-menu .t2_dropdown-item {
+	color: #fff;
+	background-color: #29303f;
+	border: 1px solid #29303f;
+	padding: 1px 6px;
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: 200;
+	display: list-item;
+	text-align: left
+}
+
+#t2-accform-applet span.t2_dropdown_arrow::before {
+	content: "\e64f";
+	font-family: oracle;
+	cursor: pointer;
+	color: #5f5f5f
+}
+
+#t2-accform-applet span.t2_dropdown_arrow {
+	margin: 6px 0 0 -20px;
+	pointer-events: none
+}
+
+#t2-accform-applet .t2_dropdown-menu .t2_dropdown-item:hover {
+	background-color: #1474bf
+}
+
+.t2-store-ico {
+    background-image: url('../images/t2_store_ico.png');
+    background-size: 20px 16px;
+    height: 18px;
+    width: 20px;
+    background-repeat: no-repeat;
+}
+
+.t2-coverage-ico {
+    background-image: url('../images/t2_coverage_icon.png');
+    background-size: 20px 16px;
+    height: 18px;
+    width: 20px;
+    background-repeat: no-repeat;
+}
+
+.store-info-box:before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-left: -4px;
+	bottom: -8px;
+	left: 50%;
+	box-sizing: border-box;
+	border: 4px solid #c7c7c7;
+	border-color: transparent transparent #f4f4f4 #f4f4f4;
+	transform-origin: 0 0;
+	transform: rotate(-45deg);
+	box-shadow: -2px 3px 3px 0 #c7c7c7
+}
+
+.store-img,
+.store-img img {
+	height: 16px
+}
+
+.store-info-box {
+	background-color: #f4f4f4;
+	box-shadow: 2px 2px 5px #c7c7c7;
+	color: #333;
+	font-family: 'Tele2 Slab Web';
+	font-size: 12px
+}
+
+.store-img {
+	margin-right: 8px;
+	flex: none
+}
+
+.store-name {
+	line-height: 16px;
+	font-size: 16px;
+	flex: 1;
+	margin-top: 2px
+}
+
+.store-close {
+	font-size: 16px;
+	display: flex;
+	flex: none;
+	align-items: center;
+	cursor: pointer;
+	margin-left: 16px
+}
+
+.store-close:hover {
+	color: #ff9000
+}
+
+.store-address-block,
+.store-header-block,
+.store-work-hours-block {
+	min-height: 64px;
+	max-height: 64px;
+	background-color: #f4f4f4;
+	display: flex;
+	align-items: center;
+	padding: 0 16px
+}
+
+.store-header-block {
+	background-color: #fff
+}
+
+.store-work-hours-block {
+	align-items: baseline;
+	padding-top: 16px;
+	min-height: 48px;
+	max-height: 48px;
+	border-bottom: 1px solid #e2e2e2
+}
+
+.store-work-hours-block.deviant {
+	color: red
+}
+
+.store-address-block {
+	font-family: 'Tele2 Slab Web Bold';
+	flex-direction: column;
+	justify-content: center;
+	align-items: left
+}
+
+.store-work-hour-block {
+	font-family: 'Tele2 Slab Web';
+	margin-right: 16px;
+	flex: none;
+	min-width: 32px
+}
+
+.store-work-hour-block:last-child {
+	margin-right: 0
+}
+
+.store-work-hour {
+	font-family: 'Tele2 Slab Web Bold';
+	min-height: 14px
+}
+
+.acc-address-tooltip-row {
+	color: #fff;
+	word-break: break-all;
+	text-align: center;
+	font-family: 'Tele2 Slab Web'
+}
+
+#t2-accform-applet div.icon-box {
+	display: flex;
+	margin-top: 3px;
+	color: #4F4F4F;
+	width: 29px;
+	height: 29px;
+	font-size: 20px;
+	border: 1px solid #83D644;
+	border-radius: 2px;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	margin-right: 10px
+}
+
+#t2-accform-applet div.icon-box:hover {
+	background-color: #83D644;
+	cursor: pointer
+}
+
+#t2-accform-applet span.label.ident {
+	min-width: 50px
+}
+
+#t2-accform-applet div.t2-acc-fltr-container.show {
+	visibility: visible;
+	max-height: 372px
+}
+
+#t2-accform-applet div.t2-acc-fltr-container {
+	visibility: hidden;
+	max-height: 0;
+	transition: all .5s linear;
+	width: 746px;
+	height: auto;
+	background-color: #FFF;
+	border: 1px solid #C7C7C7;
+	position: absolute;
+	left: -15px;
+	top: 21px;
+	color: #000;
+	z-index: 100;
+	padding: 10px 15px 9px;
+	font-family: 'Tele2 Slab Web';
+	overflow: hidden
+}
+
+@media all and (max-width:1680px) and (min-width:920px) {
+	#t2-acc-fltr-anchor div.t2-acc-fltr-container {
+		width: 645px
+	}
+}
+
+#t2-accform-applet div.t2-acc-fltr-row-container,
+#t2-accform-applet div.t2-acc-fltr-search-container {
+	width: 100%
+}
+
+#t2-accform-applet div.t2-acc-fltr-rows-container {
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 235px
+}
+
+#t2-accform-applet div.t2-acc-fltr-row-header {
+	width: calc(100% - 25px);
+	background-color: #CCC;
+	text-align: center;
+	font-size: 11px;
+	line-height: 13px;
+	color: #333
+}
+
+#t2-accform-applet input.t2-acc-fltr-search {
+	width: calc(100% - 30px);
+	background-color: #F4F4F4;
+	height: 30px;
+	margin: 0 0 5px;
+	padding: 0 0 0 25px;
+	border: none;
+	outline: 0;
+	line-height: 30px;
+	font-size: 13px;
+	text-indent: 10px;
+	position: relative
+}
+
+#t2-accform-applet div.t2-acc-fltr-search-container::after {
+	font-family: FontAwesome;
+	font-size: 16px;
+	align-self: center;
+	color: #FF8C00;
+	content: "\f002";
+	cursor: text;
+	position: absolute;
+	top: 17px;
+	left: 25px;
+	transform: rotate(90deg)
+}
+
+#t2-accform-applet div.t2-acc-fltr-row-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 52px;
+	width: calc(100% - 25px);
+	border-bottom: 1px solid #C7C7C7
+}
+
+#t2-accform-applet div.t2-acc-fltr-row-container:last-child {
+	border-bottom: none
+}
+
+#t2-accform-applet div.t2-acc-fltr-container.show>div.t2-acc-fltr-rows-container.t2_oach_scrollbar>div.t2-acc-fltr-row-container,
+#t2-accform-applet div.t2-acc-fltr-container.show>div.t2-acc-fltr-rows-container.t2_oach_scrollbar>div.t2-acc-fltr-row-container.two-lines {
+	width: calc(100% - 13px);
+	margin-right: 10px
+}
+
+#t2-accform-applet div.t2-acc-fltr-row-container:not(.disabled):hover {
+	background-color: #F4F4F4;
+	cursor: pointer
+}
+
+#t2-accform-applet div.t2-acc-fltr-title-text.disabled {
+	cursor: default;
+	pointer-events: none
+}
+
+#t2-accform-applet div.t2-acc-fltr-row-container.disabled {
+	pointer-events: none
+}
+
+#t2-accform-applet div.t2-acc-fltr-title-text.billing {
+	margin-left: 20px;
+	margin-right: 25px
+}
+
+@media (max-width:1680px) {
+	#t2-accform-applet div.t2-acc-fltr-title-text.billing {
+		margin-right: 0
+	}
+}
+
+#t2-accform-applet div.t2-acc-fltr-title-text:not(.current):not(.filter-enabled) span.t2-acc-fltr-divider,
+#t2-accform-applet div.t2-acc-fltr-title-text:not(.current):not(.filter-enabled) span.t2-acc-fltr-field.acc-class,
+#t2-accform-applet div.t2-acc-fltr-title-text:not(.current):not(.filter-enabled) span.t2-acc-fltr-field.acc-nr {
+	color: #C7C7C7
+}
+
+#t2-accform-applet div.t2-acc-fltr-row-container.disabled>div.t2-acc-fltr-row.main,
+#t2-accform-applet div.t2-acc-fltr-row-container.disabled>div.t2-acc-fltr-row.main>span.t2-acc-fltr-row-field,
+#t2-accform-applet div.t2-acc-fltr-row-container.disabled>div.t2-acc-fltr-row.main>span.t2-acc-fltr-row-icon,
+#t2-accform-applet div.t2-acc-fltr-row-container.disabled>div.t2-acc-fltr-row.main>span.t2-acc-fltr-row-icon::after {
+	color: #828282
+}
+
+#t2-accform-applet span.t2-acc-fltr-show {
+	display: inline-block;
+	text-decoration: underline;
+	cursor: pointer
+}
+
+#t2-accform-applet span.t2-acc-fltr-show.inactive {
+	color: #C03
+}
+
+#t2-accform-applet span.t2-acc-fltr-show.suspended {
+	color: red
+}
+
+#t2-accform-applet span.t2-acc-fltr-show.active {
+	color: #43B02A
+}
+
+#t2-accform-applet div.t2-acc-fltr-row {
+	display: flex
+}
+
+#t2-accform-applet div.t2-acc-fltr-row.main {
+	color: #333;
+	font-size: 13px
+}
+
+#t2-accform-applet div.t2-acc-fltr-row.details {
+	color: #828282;
+	font-size: 12px;
+	line-height: 16px
+}
+
+#t2-accform-applet .t2-acc-fltr-title {
+	font-family: 'Tele2 Slab Web Bold';
+	display: flex
+}
+
+#t2-accform-applet .t2-acc-fltr-field.acc-nr {
+	color: #FFF
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-icon {
+	font-family: FontAwesome;
+	font-size: 13px
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-field.status.active,
+#t2-accform-applet span.t2-acc-fltr-row-icon.active::after {
+	color: #43B02A;
+	content: "\f058"
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-field.status.prospect,
+#t2-accform-applet span.t2-acc-fltr-row-icon.prospect::after {
+	color: #43B02A;
+	content: "\f05b"
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-field.status.treatment,
+#t2-accform-applet span.t2-acc-fltr-row-icon.treatment::after {
+	color: #FF7D00;
+	content: "\f06a"
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-field.status.inactive,
+#t2-accform-applet span.t2-acc-fltr-row-icon.inactive::after {
+	color: red;
+	content: "\f057"
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-field.status.suspended,
+#t2-accform-applet span.t2-acc-fltr-row-icon.suspended::after {
+	color: red;
+	content: '\f056'
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-field.status {
+	display: none;
+	padding-left: 4px
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-icon:hover+span.t2-acc-fltr-row-field.status {
+	display: block
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-field.no-overflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-break: normal
+}
+
+#t2-accform-applet span.t2-acc-fltr-row-field.no-overflow.half {
+	min-width: min-content;
+	max-width: 345px
+}
+
+@media all and (max-width:1680px) and (min-width:920px) {
+	#t2-acc-fltr-anchor span.t2-acc-fltr-row-field.no-overflow.half {
+		max-width: 305px
+	}
+}
+
+#t2-accform-applet div.t2-acc-fltr-footer {
+	display: flex;
+	font-size: 12px;
+	padding: 9px 0 0 9px;
+	margin-right: 25px;
+	border-top: 1px solid #C7C7C7;
+	color: #828282
+}
+
+#t2-accform-applet div.t2-acc-fltr-type-footer {
+	display: flex
+}
+
+#t2-accform-applet div.t2-acc-fltr-loader-container,
+#t2-accform-applet div.t2-acc-fltr-no-match-container {
+	height: 52px;
+	line-height: 52px;
+	text-align: center
+}
+
+#t2-accform-applet span.t2-acc-fltr-loader,
+#t2-accform-applet span.t2-acc-fltr-no-match-text {
+	align-self: center
+}
+
+#t2-accform-applet span.t2-acc-fltr-no-match-text {
+	font-family: 'Tele2 Slab Web';
+	font-size: 12px;
+	color: #333
+}
+
+#t2-accform-applet span.t2-acc-fltr-loader {
+	font-family: FontAwesome;
+	animation: fa-spin 1s infinite linear;
+	color: #828282
+}
+
+#t2-accform-applet span.t2-acc-fltr-divider {
+	padding: 0 5px
+}
+
+#t2-accform-applet span.t2-acc-fltr-back {
+	font-family: FontAwesome;
+	color: #fff;
+	font-size: 12px;
+	padding-right: 5px
+}
+
+#t2-accform-applet span.t2-acc-fltr-back:hover {
+	color: #FF9000;
+	cursor: pointer
+}
+
+#t2-accform-applet div.t2-acc-fltr-title span.t2-acc-fltr-search-arrow {
+	color: #FFF;
+	font-size: 12px;
+	min-height: 14px;
+	max-height: 14px;
+	transition: all .5s, color 0s;
+	transform-origin: center
+}
+
+#t2-accform-applet div.t2-acc-fltr-title-text:not(.current):hover,
+#t2-accform-applet div.t2-acc-fltr-title-text:not(.current):hover span.t2-acc-fltr-divider,
+#t2-accform-applet div.t2-acc-fltr-title-text:not(.current):hover span.t2-acc-fltr-field.acc-class,
+#t2-accform-applet div.t2-acc-fltr-title-text:not(.current):hover span.t2-acc-fltr-field.acc-nr,
+#t2-accform-applet div.t2-acc-fltr-title-text:not(.current):hover span.t2-acc-fltr-search-arrow>i.t2-acc-fltr-arrow-rotate {
+	color: #ff9000;
+	cursor: pointer
+}
+
+#t2-accform-applet div.t2-acc-fltr-title span.t2-acc-fltr-search-arrow>i.t2-acc-fltr-arrow-rotate {
+	transition: all .5s, color 0s;
+	transform-origin: center
+}
+
+#t2-accform-applet div.t2-acc-fltr-title span.t2-acc-fltr-search-arrow>i.t2-acc-fltr-arrow-rotate.down {
+	transform: rotate(180deg)
+}
+
+#t2-accform-applet .t2-acc-fltr-tabs ul li {
+	display: inline;
+	font-size: 12px;
+	font-weight: 700;
+	margin: 0 auto;
+	padding: 7px 21px 5px
+}
+
+#t2-accform-applet .t2-acc-fltr-tabs ul li a {
+	color: #C7C7C7;
+	cursor: pointer
+}
+
+#t2-accform-applet .t2-acc-fltr-tabs ul li.is-active.t2-acc-fltr-tab-active {
+	border-bottom: 2px solid #43B02A
+}
+
+#t2-accform-applet .t2-acc-fltr-tabs ul li.is-active.t2-acc-fltr-tab-inactive {
+	border-bottom: 2px solid red
+}
+
+#t2-accform-applet .t2-acc-fltr-tabs ul li.is-active.t2-acc-fltr-tab-treatment {
+	border-bottom: 2px solid #FF9000
+}
+
+#t2-accform-applet .t2-acc-fltr-tabs ul li.is-active a {
+	color: #333
+}
+
+#t2-accform-applet .t2-acc-fltr-tabs ul {
+	border-bottom: 1px solid #BDBDBD;
+	display: flex
+}
+
+#t2-accform-applet div.menu-container {
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+	width: 100%;
+	height: 100%
+}
+
+#t2-accform-applet div.menu {
+	height: inherit;
+	position: relative
+}
+
+#t2-accform-applet div.menu-actions {
+	text-indent: 5px;
+	color: #FFF;
+	border: none;
+	height: inherit;
+	line-height: 60px;
+	margin-left: -2px;
+	z-index: 0;
+	font-family: 'Tele2 Slab Web Bold';
+	cursor: pointer;
+	user-select: none
+}
+
+#t2-accform-applet div.menu-actions:after {
+	font-family: FontAwesome;
+	content: "\f0c9";
+	float: right;
+	margin-right: 10px;
+	margin-left: 5px;
+	font-size: 12px
+}
+
+#t2-accform-applet div.item-container {
+	display: flex;
+	visibility: hidden;
+	max-height: 0;
+	height: auto;
+	text-align: left;
+	flex-direction: column;
+	color: #666;
+	background-color: #fff;
+	border-top: 1px solid #BFBFBF;
+	border-bottom: 1px solid #BFBFBF;
+	position: absolute;
+	right: 0;
+	min-width: 142px;
+	max-width: 300px;
+	transition: all .7s cubic-bezier(.4, 0, .2, 1)
+}
+
+#t2-accform-applet div.item-container.open {
+	visibility: visible;
+	max-height: 300px
+}
+
+#t2-accform-applet div.menu-item {
+	user-select: none;
+	height: 30px;
+	line-height: 30px;
+	border-left: 1px solid #BFBFBF;
+	border-right: 1px solid #BFBFBF;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0 5px;
+	cursor: pointer
+}
+
+#t2-accform-applet div.menu-item:hover {
+	background: #bcbcbc;
+	color: #666;
+	font-weight: 700
+}
+
+@media all and (max-width:1680px) and (min-width:920px) {
+	#t2-accform-applet div.t2-acc-fltr-container {
+		width: 646px
+	}
+}
+
+.t2_my_tele2_btn.active {
+	border-radius: 2px;
+	background: white;
+	border: 1px solid rgba(131, 214, 68, 1);
+	cursor: pointer;
+	width: 89px;
+	height: 15px;
+	padding-top: 3px;
+	font-family: 'Tele2 Slab Web';
+	line-height: normal;
+	font-size: 11px;
+	text-align: center;
+	color: #000000;
+}
+
+.t2_my_tele2_btn {
+	border-radius: 2px;
+	background: #C7C7C7;
+	border: 1px solid #C7C7C7;
+	cursor: default;
+	width: 89px;
+	height: 15px;
+	padding-top: 3px;
+	font-family: 'Tele2 Slab Web';
+	line-height: normal;
+	font-size: 11px;
+	text-align: center;
+	color: #000000;
+}
+.acc-indicators .power-of-attorney {
+   /*content: url('../images/legal_guardian_blue.png');*/
+	margin-bottom: -4px;
+}
+
+.acc-indicators .power-of-attorney.red {
+	content: url('../images/legal_guardian_red.png') !important;
+	margin-bottom: -4px;
+}
+
+.acc-indicators .power-of-attorney.orange {
+	content: url('../images/legal_guardian_orange.png') !important;
+	margin-bottom: -4px;
+}
+
+.acc-indicators .power-of-attorney.blue {
+	content: url('../images/legal_guardian_blue.png') !important;
+	margin-bottom: -4px;
+}
+.legal_guardian_reference {
+	display: inline;
+}
+
+/*== Outage tooltip ==========================================================*/
+
+.outage-info-box {
+	background-color: #f4f4f4;
+	box-shadow: 2px 2px 5px #c7c7c7;
+	color: #333;
+	font-family: 'Tele2 Slab Web';
+	font-size: 12px
+}
+
+.coverage-info-box {
+	background-color: #f4f4f4;
+	box-shadow: 2px 2px 5px #c7c7c7;
+	color: #333;
+	font-family: 'Tele2 Slab Web';
+	font-size: 14px;
+}
+
+.outage-info-box:before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-left: -4px;
+	bottom: -8px;
+	left: 50%;
+	box-sizing: border-box;
+	border: 4px solid #c7c7c7;
+	border-color: transparent transparent #f4f4f4 #f4f4f4;
+	transform-origin: 0 0;
+	transform: rotate(-45deg);
+	box-shadow: -2px 3px 3px 0 #c7c7c7
+}
+
+.outage-tooltip-header-block {
+    display: flex;
+    align-items: center;
+    padding: 0 11px;
+    min-height: 36px;
+    max-height: 36px;
+    font-family: 'Tele2 Slab Web';
+    background-color: #fff;
+}
+.coverage-tooltip-header-block {
+    display: flex;
+    min-height: 36px;
+    max-height: 36px;
+    font-family: 'Tele2 Slab Web';
+    background-color: #fff;
+}
+
+.outage-tooltip-name {
+    flex: 1;
+    margin-top: 2px;
+    line-height: 14px;
+    font-size: 14px;
+    color: #666666;
+    font-weight: bold;
+}
+
+.coverage-tooltip-name{
+	font-weight: bold;
+	left: 4.55%;
+	right: 11.57%;
+	top: 0%;
+	bottom: 58%;
+	font-family: Tele2 Slab Web;
+	font-size: 14px;
+	line-height: 17px;
+	display: flex;
+	align-items: center;
+	color: #666666;
+	padding-bottom: 6px;
+}
+.coverage-tooltip-name2{
+	font-weight: bold;
+	left: 4.55%;
+	right: 11.57%;
+	top: 0%;
+	bottom: 58%;
+	font-family: Tele2 Slab Web;
+	font-size: 12px;
+	line-height: 17px;
+	display: flex;
+	align-items: center;
+	color: #666666;
+	padding-bottom: 6px;
+}
+
+
+.outage-tooltip-close {
+    display: flex;
+    flex: none;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 16px;
+    line-height: 14px;
+    font-size: 12px;
+}
+
+.outage-tooltip-close:hover {
+    color: #ff9000
+}
+#alarmBlock-outage{
+	cursor: pointer;
+}
+.coverage-tooltip-close {
+    cursor: pointer;
+    line-height: 14px;
+    font-size: 12px;
+    margin-left: auto;
+    margin-top: 8px;
+}
+
+.coverage-tooltip-close:hover {
+    color: #ff9000
+}
+
+.outage-tooltip-body {
+    display: block;
+    padding: 0 11px 6px 11px;
+    font-family: 'Tele2 Slab Web';
+    background-color: #fff;
+    line-height: 14px;
+    font-size: 14px;
+    align-items: center;
+    color: #333333;
+}
+
+.outage-tooltip-row, .coverage-tooltip-row {
+    display: flex;
+    padding-bottom: 5px;
+}
+
+.outage-tooltip-row-title {
+    flex: 1;
+    font-weight: bold;
+}
+
+.coverage-tooltip-row-title{
+	/* flex: 1.4; */
+	font-weight: bold;
+	font-family: Tele2 Slab Web;
+	padding-right: 12px;
+
+}
+
+.coverage-map-footer{
+	left: 4.55%;
+	right: 4.55%;
+	top: 71.8%;
+	bottom: 18.51%;
+	font-family: Tele2 Slab Web;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+	color: #333333;
+}
+
+.coverage-map-footer2{
+	left: 4.55%;
+	right: 4.55%;
+	top: 71.8%;
+	bottom: 18.51%;
+	font-family: Tele2 Slab Web;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+	color: #333333;
+}
+
+.outage-tooltip-row-value {
+    flex: 1;
+}
+
+.coverage-tooltip-row-value{
+	flex: 1;
+	font-family: Tele2 Slab Web;
+	max-width: 222px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-inline-end: 16px;
+}
+
+/* validate bank id ==========================================================*/
+
+#t2_bank_id_container {
+    font-family: 'Tele2 Slab Web';
+}
+
+#t2_bank_id_container {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgba(33, 33, 33, 0.87);
+}
+
+#bank_id_body {
+    padding-top: 10px;
+    font-size: 14px;
+    height: 148px;
+    border-radius: 25px;
+    background: white;
+}
+
+#grey_background {
+    height: 148px;
+}
+
+.bank_id_green_btn {
+    text-align: center;
+    background-color: #83D644;
+    color: #fff;
+    border: 1px solid #83D644;
+    border-radius: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-family: 'Tele2 Slab Web';
+    font-size: 12px;
+    box-sizing: border-box;
+    width: 70px;
+    height: 22px;
+    cursor: pointer;
+    outline: 0;
+}
+
+#bank_id_button_row {
+    margin-top: 12px;
+    float: right;
+}
+
+#bank_id_body .autocomplete_wrap {
+    margin-bottom: 5px;
+}
+#bank_id_body input#itemization-wdth{
+    border: 1px solid #a9a9a9;
+    border-radius: 2px;
+    font-family: 'Tele2 Slab Web';
+    width: 182px;
+    box-sizing: border-box;
+    padding-right: 16px;
+    padding-left: 4px;
+}
+#bank_id_body .autocomplete__arrow {
+    margin-right: -3px;
+    margin-top: 4px;
+}
+
+#bank_id_fields_row {
+    display: flex;
+    height: 64px;
+}
+
+#colorbox.validate-mob-id-dialog #cboxLoadedContent {
+    border-radius: 5px;
+}
+
+/* ===========================================================================*/

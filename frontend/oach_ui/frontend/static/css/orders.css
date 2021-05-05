@@ -1,0 +1,250 @@
+/* applet */
+
+#t2_orders_list_appl {
+    height: 221px;
+}
+
+#t2_orders_loader {
+    height: 191px;
+}
+
+@media all and (max-height: 920px) {
+    #t2_orders_list_appl {
+        height: 201px;
+    }
+
+    #t2_orders_loader {
+        height: 171px;
+    }
+
+    #t2_orders_list_appl .t2_applet_main {
+        padding-top: 4px;
+    }
+}
+
+#t2_orders_list_appl .t2_applet_main {
+    min-height: 155px;
+}
+
+#t2_orders_table_wrapper {
+    flex: 1;
+    margin-left: 10px;
+}
+
+/* table */
+
+#t2_orders_table {
+    border: 0;
+    display: none;
+    table-layout: fixed;
+    border-spacing: 3px;
+}
+
+#t2_orders_table tbody {
+    font-size: 12px;
+}
+
+#t2_orders_table thead {
+    font-size: 12px;
+}
+
+#t2_orders_table th,
+#t2_orders_table tbody td {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+#t2_orders_table > tbody:before {
+    content: "-";
+    color: #fff;
+    display: block;
+    font-size: 0px;
+}
+
+#t2_orders_table th {
+    line-height: 28px;
+    font-family: 'Tele2 Slab Web Bold';
+    cursor: default;
+    background: #999;
+    color: #fff;
+}
+
+#t2_orders_table tbody td {
+    line-height: 22px;
+}
+
+#t2_orders_table tr:hover {
+    cursor: pointer;
+}
+
+#t2_orders_table tr:hover td:not(.dataTables_empty) {
+    background-color: #ff9000;
+}
+
+#t2_orders_table tr:hover td.dataTables_empty {
+    cursor: auto;
+}
+
+#t2_orders_table > tbody > tr.selected td {
+    background-color: #ff9000;
+    font-family: 'Tele2 Slab Web Bold';
+}
+
+#t2_orders_table tr.status_in_progress:hover td.status_in_progress {
+    background-color: #ff9000;
+}
+
+#t2_orders_table > tbody > tr.status_in_progress td {
+    background-color: #ffa500;
+}
+
+#t2_orders_table > tbody > tr.status_in_progress:hover td {
+    background-color: #ffbf6b;
+}
+
+#t2_orders_table > tbody > tr.selected > td > div > span::before {
+    font-family: FontAwesome;
+    content: "\f0da";
+    font-weight: bold;
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    left: 7px;
+}
+
+.copy_opentip {
+    font-size: .9em;
+    color: #fff;
+    text-shadow: none;
+    display: table;
+    font-family: 'Tele2 Slab Web';
+}
+
+.copy_btn {
+    color: deepskyblue;
+    margin-left: 5px;
+}
+
+.copy_btn:hover {
+    color: dodgerblue;
+}
+
+.copy_btn:active {
+    color: lightblue;
+}
+
+#t2_orders_table td {
+    color: #333;
+    background-color: #f2f2f2;
+    text-align: center;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 150px;
+    padding: 5px 0;
+    margin: 0;
+}
+
+.order_no_overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: nowrap;
+    display: block;
+    min-height: 22px;
+}
+
+.t2_field_drilldown:hover {
+    color: #009EE0;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.t2_field_drilldown.selected {
+    font-family: 'Tele2 Slab Web Bold';
+}
+
+/* navigation */
+
+#t2_orders_list_appl > div.t2_applet_main > div.list_nav {
+    width: 30px;
+    height: 162px;
+    position: relative;
+    margin: 0 5px;
+    display: none;
+}
+
+#t2_orders_list_appl > div.t2_applet_main > div.list_nav > div.prev_page,
+#t2_orders_list_appl > div.t2_applet_main > div.list_nav > div.next_page {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 25px;
+    background-color: #fff;
+    border: 1px solid #666;
+    border-radius: 100%;
+    color: #666;
+    font-family: FontAwesome;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#t2_orders_list_appl > div.t2_applet_main > div.list_nav > div.prev_page.btn_disabled,
+#t2_orders_list_appl > div.t2_applet_main > div.list_nav > div.next_page.btn_disabled {
+    opacity: .5;
+    cursor: default;
+}
+
+#t2_orders_list_appl > div.t2_applet_main > div.list_nav > div.prev_page {
+    top: 38px;
+}
+
+#t2_orders_list_appl > div.t2_applet_main > div.list_nav > div.next_page {
+    bottom: 5px;
+}
+
+.next_page:before {
+    content: "\f107";
+}
+
+.prev_page:before {
+    content: "\f106";
+}
+
+#t2_orders_list_appl > div.t2_applet_main > div.list_nav > div.prev_page:not(.btn_disabled):hover,
+#t2_orders_list_appl > div.t2_applet_main > div.list_nav > div.next_page:not(.btn_disabled):hover {
+    opacity: .8;
+    background-color: #787878;
+    color: #fff;
+}
+
+.orders_opentip {
+    font-size: 1em;
+    color: #fff;
+    text-shadow: none;
+    display: table;
+    font-family: 'Tele2 Slab Web';
+}
+
+.order-tooltip-row {
+    display: flex;
+}
+
+.order-tooltip-row .order-label {
+    font-family: 'Tele2 Slab Web Bold';
+    margin-right: 4px;
+}
+
+/* error message Template styles */
+#orders_carousel_wrapper {
+    width: 100%;
+    margin: 26px 60px;
+    height: 100px;
+    min-height: 105px;
+}

@@ -1,0 +1,221 @@
+# Ref
+https://www.django-rest-framework.org/tutorial/quickstart/
+https://www.youtube.com/watch?v=0iB5IPoTDts&t
+
+# Using Windows terminal
+
+# Install Django and Django REST framework into local
+pip install django
+pip install djangorestframework
+
+# Create local Django Project
+django-admin startproject oach_accounts
+
+# Add requirements.txt
+Django==3.1.3
+djangorestframework==3.12.2
+mysqlclient==2.0.1
+django-mysql==3.9
+django-cors-headers==3.5.0
+django-requestlogs==0.2.3
+django-ipware==3.0.2
+python-dateutil==2.8.1
+requests==2.25.1
+
+# Create Dockerfile
+FROM python:3.9
+ENV PYTHONUNBUFFERED 1
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+COPY . /app
+
+CMD python manage.py runserver 0.0.0.0:8000
+
+#Create docker-compose.yml
+version: '3.8'
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8030:8000
+        volumes:
+            - .:/app
+networks:
+    default:
+        name: tele2corp
+
+# Run in terminal
+docker compose up
+
+# Check if accounts_api is up and running on same network as mysql db
+docker ps --filter "network=tele2corp"
+
+docker compose exec api bash
+python manage.py startapp oach_accounts_api
+
+# Modify settings.py
+	# Add below in INSTALLED_APPS
+		'rest_framework',
+		'corsheaders',
+		'oach_accounts_api',
+	# Add below in MIDDLEWARE
+		'corsheaders.middleware.CorsMiddleware',
+	# Add below constant
+	CORS_ORIGIN_ALLOW_ALL = True
+	# Change DATABASES to below
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.mysql',
+			'NAME': 'oach_db',
+			'USER': 'oachsrvc',
+			'PASSWORD': 'Tele20ACHdbPa##w0rd',
+			'HOST': 'oach_db_oach_db_1',
+			'PORT': '3306',
+		}
+	}
+	
+	
+# Migrating models
+docker compose exec sd_api bash
+python manage.py makemigrations
+python manage.py migrate
+	
+# Create Super User
+docker compose exec api bash
+python manage.py createsuperuser
+oachadmin
+Tele20ACHap!Pa##w0rd
+
+# verify by logging into http://localhost:8020/admin/
+
+# Enable Token Authentication
+# settings.py
+	# Add below in INSTALLED_APPS
+		'rest_framework.authtoken',
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
+# Migrate DB
+python manage.py migrate
+		
+# Add below in View class
+from rest_framework.permissions import IsAuthenticated
+
+# At the start of your class
+permission_classes = (IsAuthenticated,)
+
+# Create new super user
+python manage.py createsuperuser --username oachapiservice --email oach@tele2.com
+Tele20ACHap!Pa##w0rd
+
+# Get the token
+python manage.py drf_create_token oach
+Token 2ff24a4d1792d8bf631538ebf73706e87e7df2c0
+
+# To regenerate token
+python manage.py drf_create_token -r oach
+
+# Create API Request endpoint
+oach_accounts_api/urls.py
+
+from rest_framework.authtoken.views import obtain_auth_token
+
+path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
+
+# Use post to get Token
+Endpoint: http://localhost:8030/api/api-token-auth/
+Method: POST
+Form data:
+	username: oachapiservice
+	password: Tele20ACHap!Pa##w0rd
+	
+Token 2ff24a4d1792d8bf631538ebf73706e87e7df2c0	
+	
+# Add logging
+# Add in requirements.txt
+django-requestlogs==0.2.3
+django-ipware==3.0.2
+
+# Add middleware.py under oach_accounts_api
+class CustomHeaderMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        response['X-servicedelivery-Response-Id'] = request.META.get('HTTP_X_servicedelivery_REQUEST_ID')
+        return response
+
+# settings.py
+# In MIDDLEWARE
+'requestlogs.middleware.RequestLogsMiddleware',
+'requestlogs.middleware.RequestIdMiddleware',
+'oach_accounts_api.middleware.CustomHeaderMiddleware',
+# In REST_FRAMEWORK
+'EXCEPTION_HANDLER': 'requestlogs.views.exception_handler',
+# Add below
+REQUESTLOGS = {
+    'STORAGE_CLASS': 'requestlogs.storages.LoggingStorage',
+    'ENTRY_CLASS': 'requestlogs.entries.RequestLogEntry',
+    'SERIALIZER_CLASS': 'requestlogs.storages.RequestIdEntrySerializer',
+    'SECRETS': ['password', 'token'],
+    'ATTRIBUTE_NAME': '_requestlog',
+    'METHODS': ('GET', 'PUT', 'PATCH', 'POST', 'DELETE'),
+    'REQUEST_ID_HTTP_HEADER': 'HTTP_X_OACH_REQUEST_ID',
+    'REQUEST_ID_ATTRIBUTE_NAME': 'request_id',
+}
+# Add below
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'requestlogs_to_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': '/app/log/requestlogs.log',
+        },
+        'root': {
+            'class': 'logging.StreamHandler',
+            'filters': ['request_id_context'],
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['root'],
+            'level': 'DEBUG',
+        },
+        'requestlogs': {
+            'handlers': ['requestlogs_to_file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+    'filters': {
+        'request_id_context': {
+            '()': 'requestlogs.logging.RequestIdContext',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s %(levelname)s %(request_id)s %(module)s:%(lineno)s %(message)s'
+        },
+    },
+}
+# Add below directory structure and empty file under project folder
+log/requestlogs.log
+# Add below header to Postman
+# Pre-request script
+let guid = pm.variables.replaceIn('{{$guid}}')
+let formattedGuid = guid.replace(/-/g, '')
+pm.globals.set("newGuid", formattedGuid)
+# Header
+Authorization: Token 2ff24a4d1792d8bf631538ebf73706e87e7df2c0
+X-servicedelivery-Request-Id: {{newGuid}}

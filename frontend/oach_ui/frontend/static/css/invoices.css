@@ -1,0 +1,506 @@
+#t2_invoice_col_appl {
+    font-size: 13px;
+}
+
+#t2_invoice_carousel_wrapper {
+    display: none;
+    margin: 0 50px;
+    height: 132px;
+    border: 10px solid #fff;
+}
+
+#t2_invoices_loader {
+    height: 132px;
+    border: 10px solid #fff;
+}
+
+#t2_invoice_jcarousel {
+    width: 100%;
+    height: inherit;
+}
+
+#t2_invoice_jcarousel ul {
+    display: flex;
+    flex-direction: row;
+    height: inherit;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 20000em;
+}
+
+#t2_invoice_jcarousel li {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 88px;
+    height: inherit;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 1em;
+    text-align: center;
+}
+
+#t2_invoice_jcarousel > ul > li.regular.nld,
+#t2_invoice_jcarousel > ul > li.next-invoice.nld{
+    padding-right: 11px;
+    padding-left: 9px;
+}
+
+#t2_invoice_jcarousel li:not([error]) {
+    cursor: pointer;
+}
+
+@media all and (max-width: 1680px) {
+    #t2_invoice_jcarousel li {
+        width: 93px;
+        padding-left: 8px;
+        padding-right: 9px;
+    }
+}
+
+@media all and (max-width: 1680px) {
+    #t2_invoice_jcarousel > ul > li.regular.nld,
+    #t2_invoice_jcarousel > ul > li.next-invoice.nld {
+        width: 93px;
+        padding-left: 8px;
+        padding-right: 9px;
+    }
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+    background: #80AFDC;
+    color: #fff;
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar:hover {
+    background: #5AE;
+}
+
+#t2_invoice_jcarousel li span:not(.t2_col_header_text) {
+    color: #000;
+    width: 100%;
+}
+
+#t2_invoice_jcarousel li:hover {
+    font-family: 'Tele2 Slab Web Bold';
+}
+
+#t2_invoice_jcarousel li:hover .t2_invoice_bar {
+    background: #005EB8;
+    font-family: 'Tele2 Slab Web';
+}
+
+#t2_invoice_jcarousel li.selected {
+    font-family: 'Tele2 Slab Web Bold';
+}
+
+#t2_invoice_jcarousel li.selected .t2_invoice_bar {
+    background-color: #005EB8;
+}
+
+.t2_col_header {
+    padding: 1px 0 4px 0;
+}
+
+.next-invoice-tip-target,
+.invoice-tip-target {
+    height: 1px;
+    width: 1px;
+    background-color: transparent;
+    align-self: center;
+}
+
+.t2_col_header_text {
+    color: #696969;
+    padding-bottom: 6px;
+}
+
+.t2_bar_price {
+    font-family: 'Tele2 Slab Web Bold';
+    flex-grow: 100;
+    flex-flow: column;
+    align-self: center;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 5px;
+}
+
+/*invoice tooltip*/
+
+.t2_invoice_tooltip {
+    text-shadow: 0 0 0;
+}
+
+.t2_invoice_tooltip [invstatus] {
+    display: flex;
+}
+
+.t2_inv_tooltip_title {
+    width: 75%;
+    display: flex;
+    font-size: 24px;
+    margin-bottom: 3px;
+    font-family: 'Tele2 Slab Web Bold';
+}
+
+[t2_header_status] {
+    color: #009EE0;
+}
+
+[t2_header_status="Overdue"] {
+    color: #f00;
+}
+
+[t2_header_status="Suspension"] {
+    color: #f00;
+}
+
+[t2_header_status="Debt agency"] {
+    color: #f00;
+}
+
+[t2_header_status="Eligible for treatment"] {
+    color: #f00;
+}
+
+[t2_header_status="Collection"] {
+    color: #f00;
+}
+
+[t2_header_status="SMS"] {
+    color: #f00;
+}
+
+[t2_header_status="Delinquent"] {
+    color: #f00;
+}
+
+[t2_header_status="Due for debt agency"] {
+    color: #f00;
+}
+
+[t2_header_status="Selected for debt agency"] {
+    color: #f00;
+}
+
+[t2_header_status="On its way to debt agency"] {
+    color: #f00;
+}
+
+[t2_header_status="Pending at debt agency"] {
+    color: #f00;
+}
+
+[t2_header_status="Due for closing at debt agency"] {
+    color: #f00;
+}
+
+[t2_header_status="Due for deactivation"] {
+    color: #f00;
+}
+
+[t2_header_status="Deactivation"] {
+    color: #f00;
+}
+
+.t2_inv_tooltip_line button {
+    margin: auto;
+    width: 150px;
+    max-width: 300px;
+    margin-top: 2px;
+}
+
+.t2_inv_tooltip_line .inv_tooltip_label,
+.t2_inv_tooltip_line .inv_tooltip_label_mid {
+    font-family: 'Tele2 Slab Web Bold';
+}
+
+.inv_tooltip_label_mid {
+    display: table;
+    margin: 0 auto;
+}
+
+.t2_inv_tooltip_line .left_block {
+    width: 55%;
+    display: flex;
+}
+
+.t2_inv_tooltip_line .right_block {
+    width: 40%;
+    display: flex;
+}
+
+.t2_invoice_tooltip.sve .t2_inv_tooltip_line .left_block,
+.t2_invoice_tooltip.sve .t2_inv_tooltip_line .right_block {
+    width: 50%;
+}
+
+.t2_inv_tooltip_status {
+    font-family: 'Tele2 Slab Web Bold';
+    font-size: 16px;
+}
+
+.t2_bar_due_date {
+    padding-top: 8px;
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar[invstatus]:after {
+    font-size: 20px;
+    position: absolute;
+    top: -8px;
+    right: -9px;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar[invstatus="t2_inv_status_warning"]:after,
+.t2_invoice_tooltip [invstatus="t2_inv_status_warning"] {
+    color: #FF7D00;
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar[invstatus="t2_inv_status_warning"]:after,
+.t2_invoice_tooltip [invstatus="t2_inv_status_warning"] div.t2_invoice_icon:after {
+    content: "\f017";
+    font-family: FontAwesome;
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar[invstatus="t2_inv_status_important"]:after,
+.t2_invoice_tooltip [invstatus="t2_inv_status_important"],
+div.t2_inv_tooltip_line[t2_invoice_status="t2_inv_status_important"] {
+    color: #f00;
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar[invstatus="t2_inv_status_important"]:after,
+.t2_invoice_tooltip [invstatus="t2_inv_status_important"] div.t2_invoice_icon:after {
+    content: "\f06a";
+    font-family: FontAwesome;
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar[invstatus="t2_inv_status_ok"]:after,
+.t2_invoice_tooltip [invstatus="t2_inv_status_ok"] {
+    color: #00B050;
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar[invstatus="t2_inv_status_ok"]:after,
+.t2_invoice_tooltip [invstatus="t2_inv_status_ok"] div.t2_invoice_icon:after {
+    content: "\f058";
+    font-family: FontAwesome;
+}
+
+#t2_invoice_jcarousel li .t2_invoice_bar[invstatus="t2_inv_next_invoice"]:after {
+    content: "\f013";
+    font-family: FontAwesome;
+    color: #FF7D00;
+}
+
+div.t2_inv_tooltip_line {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+div.t2_inv_tooltip_line div {
+    padding-left: 0;
+    padding-right: 3px;
+}
+
+div.t2_inv_tooltip_line #t2_inv_tooltip_betalat_hittills_line {
+    display: flex;
+}
+
+.t2_invoice_tooltip {
+    font-family: 'Tele2 Slab Web';
+    font-size: 13px;
+    text-shadow: none;
+}
+
+.t2_invoice_header {
+    font-size: 18px;
+}
+
+.t2_invoice_header div[invstatus] {
+    font-size: 18px;
+}
+
+.t2_error {
+    font-size: 13px;
+}
+
+.t2_popup_body_data{
+    width: 772px;
+    min-height: 365px;
+    padding-top: 8px;
+    padding-left: 9px;
+}
+
+.t2_popup_body_message{
+    position: absolute;
+    padding-top: 11px;
+    padding-left: 7px;
+    width: 744px;
+    height:42px;
+
+    font-family: Tele2 Slab Web;
+    line-height: normal;
+    font-size: 14px;
+
+    color: rgba(33, 33, 33, 0.87);
+}
+
+.t2_popup_info_button{
+    font-family: 'Tele2 Slab Web';
+    font-size: 12px !important;
+    font-weight: normal !important;
+
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid #83D644;
+    cursor: pointer;
+
+    line-height: normal;
+    text-align: center;
+    height: 24px;
+    float: right;
+    position: relative;
+}
+
+.t2_popup_button_credit{
+    background-color: #83D644;
+    color: white;
+}
+
+.t2_popup_button_adjustment{
+    background-color: white;
+    color: black;
+    margin-right: 12px;
+    margin-left: 18px;
+} 
+
+#t2_popup_table{
+    padding-block-start: 46px;
+}
+
+.t2_popup_table_wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    position: relative
+}
+
+.t2_popup_table{
+    display: grid;
+    grid-template-columns: 18.4% 16.3% 20.4% 18.3% 12.3% 14.3%
+}
+
+.t2_popup_table{
+    margin-bottom: 6px;
+    height: 24px;
+}
+
+.scroll_bar{
+    width: auto;
+    height: 270px;
+    overflow: auto;
+  }
+
+  .line {
+    grid-column: 1 / -1;
+    height: 1px;
+    border-bottom:0.5px solid #C7C7C7;;
+  }
+  /******************************************************************************/
+  /* invoice type filter */
+
+  #t2_invoice_col_appl > div.t2_list_header > div.t2_search {
+    min-width: 265px;
+    padding-right: 0px;
+  }
+
+  #t2_invoice_col_appl .invoice {
+    min-width: 264px;
+    padding-right: 0
+}
+
+#t2_invoice_col_appl .invoice-search-with-filter {
+    padding-right: 10px;
+    padding-left: 29px;
+    width: calc(100% - 149px);
+    float: left;
+}
+
+#t2_invoice_filter_option {
+    position: relative;
+    font-size: 13px;
+    height: 30px;
+    background: #F4F4F4;
+    cursor: pointer;
+    width: 110px;
+    box-sizing: border-box;
+    color: #757575;
+    float: left;
+    line-height: 30px;
+    z-index: 1;
+    display: none;
+}
+.filter-option {
+    text-align: left;
+}
+#invoiceSearchFilter, #t2_invoice_filter_option_1 .filter-inactive {
+    color: #666666;
+    padding-left: 8px;
+}
+#t2_invoice_filter_option:hover  .fa-sort-down {	
+	color: #FF8C00;
+}
+.filter-option:before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0px;
+    height: 13px;
+    width: 1px;
+    background: #C7C7C7;
+}
+.filter-remove:before {
+    display: none;
+}
+#invoiceSearchFilter, #t2_invoice_filter_option_1 .filter-inactive {
+    color: #666666;
+    padding-left: 8px;
+}
+#t2_invoice_filter_option .rotate {
+    font-size: 12px;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+#t2_invoice_filter_option .rotate.down {
+    top: 12px;
+}
+#t2_invoice_filter_option_1 {
+    position: absolute;
+    height: 30px;
+    top: 100%;
+    background: #F4F4F4;
+    width: 97%;
+    display: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    line-height: 30px;
+}
+#t2_invoice_filter_option_1:hover {
+    background: #BCBCBC;
+}
+.ba_drilldown.lvi_lth_eti {
+	color: white;
+    text-decoration: none;
+	cursor: default;
+}
+  /******************************************************************************/

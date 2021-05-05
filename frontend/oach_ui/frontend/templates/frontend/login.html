@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <title>OACH v2.0 CRM</title>
+    <link rel="shortcut icon" href="{% static "images/favicon.ico" %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}" />
+</head>
+
+<body class="oach-login-body">
+    <form method="post" action="{% url 'oach-login' %}">
+        {% csrf_token %}
+        <div id="content" class="oach-login-container">    
+            <div id="loginLogo" class="oach-login-logo">{{ env_name }}</div>
+
+            <div id="formContent" class="oach-login-form">
+                <div class="oach-fieldset">
+                    <label for="s_OACHpi_1" class="oach-ctrl-label">User ID</label>                    
+                    <span class="oach-ctrl-input">
+                        <input type="text" name="OACHUserName" value="" title="User ID" id="OACHUserName" tabindex="1" size="10" maxlength="100" autocapitalize="off" autocorrect="off">
+                    </span>
+                </div>
+                
+                <div class="oach-fieldset">
+                    <label for="s_OACHpi_2" class="oach-ctrl-label">Password</label>
+                    <span class="oach-ctrl-password">
+                        <input type="password" name="OACHPassword" title="Password" id="OACHPassword" tabindex="2" size="10" maxlength="100" autocomplete="off" autocorrect="off">
+                    </span>
+                </div>
+                
+                <div class="oach-login-btn">
+                    <input type="submit" id="OACHLoginSubmit" value="Login" enabled>                
+                </div>
+                                
+                <div id="title" class="oach-login-title"></div>
+            </div>     
+
+            <div id="statusBar" class="oach-error">{{ error_message }}</div>
+        </div>
+    </form>
+    <script>document.getElementById("OACHUserName").focus();</script>
+</body>
+
+</html>

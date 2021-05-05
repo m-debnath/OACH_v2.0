@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+    oach_db:
+        image: mysql/mysql-server
+        restart: always
+        environment:
+            MYSQL_DATABASE: oach_db
+            MYSQL_ROOT_PASSWORD: Tele20ACHdbPa##w0rd
+        ports:
+            - "33068:3306"
+networks:
+    default:
+        name: tele2corp

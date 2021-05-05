@@ -1,0 +1,1205 @@
+/*
+	Revision 	Login 		Date 			Description
+	REV0		.....		.....			Previous changes....
+	REV1		NIKOZIKO	19Jan2016		Changing approach for hidden data like secret customer and secret question; Adding style for hidden Secret question RFC SIEB-2138
+	REV2		NIKOZIKO	20Jan2016		Adding Fix for SR# field on the Log panel
+	REV3		NIKOZIKO	21Jan2016		Removing height collapse for log panel
+	REV4		NIKOZIKO	27Jan2016		Fix for glitch typing in collapsed panel, QC10254
+	REV5		NIKOZIKO	09Feb2016		Removing elipse from datetime controls
+	REV6		NIKOZIKO	24Feb2016		fix for checkboxes not appearing in line under protected identity, textarea were not hidden if pressed next record and selection in textarea
+	REV7		NIKOZIKO	18Apr2016		Adding CSS for Log panel tabs
+	REV8		JEKASOKO	24May2016		Adding CSS for WinBack case button, SIEB-3550;
+	REV9		NIKOZIKO	25May2016		QC11025
+	REV10		DMITMANU	30Jun2016		Added new CSS for Column on list applet for SIEB-3641;
+	REV11		NIKOZIKO	07Jul2016		Adding css for SIEB-3054
+	REV12		NIKOZIKO	18Jul2016		SIEB-830
+	REV13		NIKOZIKO	01Aug2016		Added for SIEB-2910
+	REV14		NIKOZIKO	19Sep2016		Resolution code color changed to darkgrey QC 5783
+	REV15		NIKOZIKO	19Sep2016		QC 5777
+	REV16		STOKJELE	28Feb2017		added for SM 12458
+	REV17		GENAMORO	19Jun2017		Added pink row markup (SIEB-7951)
+*/
+
+@font-face {
+    font-family: 'Tele2 Slab Web';
+    src: url("./fonts/Tele2SlabWeb-Regular.eot");
+    src: url("./fonts/Tele2SlabWeb-Regular.eot?#iefix") format("embedded-opentype"),url("./fonts/Tele2SlabWeb-Regular.woff") format("woff"),url("./fonts/Tele2SlabWeb-Regular.ttf") format("truetype"),url("./fonts/Tele2SlabWeb-Regular.svg#Tele2SlabWeb-Regular") format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Tele2 Slab Web Regular';
+    src: url("./fonts/Tele2SlabWeb-Regular.eot");
+    src: url("./fonts/Tele2SlabWeb-Regular.eot?#iefix") format("embedded-opentype"),url("./fonts/Tele2SlabWeb-Regular.woff") format("woff"),url("./fonts/Tele2SlabWeb-Regular.ttf") format("truetype"),url("./fonts/Tele2SlabWeb-Regular.svg#Tele2SlabWeb-Regular") format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Tele2 Slab Web Bold';
+    src: url("./fonts/Tele2SlabWeb-Bold.eot");
+    src: url("./fonts/Tele2SlabWeb-Bold.eot?#iefix") format("embedded-opentype"),url("./fonts/Tele2SlabWeb-Bold.woff") format("woff"),url("./fonts/Tele2SlabWeb-Bold.ttf") format("truetype"),url("./fonts/Tele2SlabWeb-Bold.svg#Tele2SlabWeb-Bold") format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+/*NIKOZIKO 29Apr2015: Added modifications for Customer dashboard*/
+/*NIKOZIKO Highlight part RFC 2015:2613*/
+[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable tr[t2rowmarkedorange="true"]:nth-child(even):not(.ui-state-highlight) td {
+    background-color: #FFCC80;
+}
+[isInQueryMode="false"] tr[t2rowmarkedorange="true"] {
+    background: #FFD699;
+}
+[isInQueryMode="false"] tr.selected-row[t2rowmarkedorange="true"],
+.no-touch div[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable tr[t2rowmarkedorange="true"]:hover td {
+    background: #FFC266 !important;
+}
+[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable .ui-state-highlight[t2rowmarkedorange="true"] td {
+    background: #FFC266 !important;
+}
+/*NIKOZIKO: End of highlight part*/
+
+/*REV10 DMITMANU Highlight part SIEB-3641*/
+[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable tr[t2rowmarkedgreen="true"]:nth-child(even):not(.ui-state-highlight) td {
+    background-color: #8dfc8e;
+}
+[isInQueryMode="false"] tr[t2rowmarkedgreen="true"] {
+    background: #8dfc8e;
+}
+[isInQueryMode="false"] tr.selected-row[t2rowmarkedgreen="true"],
+.no-touch div[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable tr[t2rowmarkedgreen="true"]:hover td {
+    background: #a5e3a6 !important;
+}
+[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable .ui-state-highlight[t2rowmarkedgreen="true"] td {
+    background: #a5e3a6!important;
+}
+
+[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable tr:nth-child(even):not(.ui-state-highlight) td.t2columnmarkedorange {
+    background-color: #FFCC80;
+}
+[isInQueryMode="false"] td.t2columnmarkedorange {
+    background: #FFD699;
+}
+.no-touch div[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable tr:hover td.t2columnmarkedorange {
+    background: #FFC266 !important;
+}
+[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable .ui-state-highlight td.t2columnmarkedorange {
+    background: #FFC266  !important;
+}
+/*REV10 DMITMANU Highlight part SIEB-3641 END*/
+
+/*REV17*/
+[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable tr[t2rowmarkedpink="true"]:nth-child(even):not(.ui-state-highlight) td {
+    background-color: #FE9498;
+}
+[isInQueryMode="false"] tr[t2rowmarkedpink="true"] {
+    background: #FE9498;
+}
+[isInQueryMode="false"] tr.selected-row[t2rowmarkedpink="true"],
+.no-touch div[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable tr[t2rowmarkedpink="true"]:hover td {
+    background: #E5777B !important;
+}
+[isInQueryMode="false"] .ui-jqgrid .ui-jqgrid-btable .ui-state-highlight[t2rowmarkedpink="true"] td {
+    background: #E5777B !important;
+}
+/*REV17 End*/
+
+.siebui-popup-togglebar {
+    margin-top: 3px;
+}
+/*NIKOZIKO 18Jun2015: protected identity RFC 2014:6110*/
+
+[isInQueryMode="false"] tr[t2_secret_customer="true"] td,
+[isInQueryMode="false"] tr[t2_secret_question="true"] td {
+    /*Workaround for annoying tooltips showing hidden data*/
+    pointer-events: none;
+    -webkit-user-select: none;
+    /*TD Content to transparet*/
+    color: transparent !important;
+    /*PROTECTED SVE no-repeat*/
+}
+/*REV1*//*REV7*/
+[isInQueryMode="false"] tr[t2_secret_customer="true"] td div,
+[isInQueryMode="false"] tr[t2_secret_question="true"] td div,
+[isInQueryMode="false"] tr[t2_secret_question="true"] td span,
+[isInQueryMode="false"] tr[t2_secret_customer="true"] td span{
+	display:none !important;
+}
+/*REV1 NIKOZIKO 19Jan2016: Fix for appearing MVG icons*/
+[isInQueryMode="false"] tr[t2_secret_customer="true"] td span:before,
+[isInQueryMode="false"] tr[t2_secret_question="true"] td span:before{
+	content:none;
+}
+/*REV1*/
+[isInQueryMode="false"] tr[t2_secret_customer="true"] td:before,
+[isInQueryMode="false"] tr[t2_secret_question="true"] td:before{
+	color:black;
+	font-style: italic;
+	font-size:12px;
+}
+
+[isInQueryMode="false"][t2lang="SVE"] tr[t2_secret_customer="true"] td:before{
+	content:"Skyddad identitet";
+}
+[isInQueryMode="false"][t2lang="ENU"] tr[t2_secret_customer="true"] td:before{
+	content:"Secret customer";
+}
+[isInQueryMode="false"][t2lang="SVE"] tr[t2_secret_question="true"] td:before{
+	content:"Hemlig fråga";
+}
+[isInQueryMode="false"][t2lang="ENU"] tr[t2_secret_question="true"] td:before{
+	content:"Secret Question";
+}
+/*REV1*/ /*REV7*/
+[isInQueryMode="false"] tr[t2_secret_customer="true"] input,
+[isInQueryMode="false"] tr[t2_secret_question="true"] input,
+[isInQueryMode="false"] tr[t2_secret_customer="true"] a,
+[isInQueryMode="false"] tr[t2_secret_question="true"] a,
+[isInQueryMode="false"] tr[t2_secret_customer="true"] textarea,
+[isInQueryMode="false"] tr[t2_secret_question="true"] textarea{
+    display: none;
+}
+
+#CommunicationPanelContainer {
+    float: none;
+}
+.siebui-dashboard-control-area .siebui-dashboard-ctrl {
+    width: initial !important;
+}
+#T2_DashboardNav {
+    display: inline-block;
+    width: 25%;
+    resize: none;
+}
+#T2_DashboardNav div {
+    width: 50%;
+}
+#T2_DashboardFields div {
+    width: 33%;
+}
+#T2_DashboardFields {
+    display: inline-block;
+    width: 75%;
+}
+.siebui-dashboard-container {
+    padding: 0px;
+}
+#T2_DashboardNav table span.siebui-dashboard-ctrl {
+    width: 50px !important;
+}
+#T2_DashboardNav table span.siebui-dashboard-ctrl a {
+    width: 10px !important;
+}
+/*EDUAKOVR 29Apr2015: Added style for site map icon*/
+
+.siebui-icon-tb-sitemap::before {
+    content: "";
+}
+.siebui-icon-tb-sitemap>img {
+    width: 16px;
+    height: 16px;
+    margin-bottom: -2px;
+}
+/* AINAORE 26May2015: Added width for PDQ container to show label*/
+
+.PDQToolbarContainer {
+    width: 310px !important;
+}
+/*NIKOZIKO 26May2015:Look And Feel Enhancement*/
+
+div[name="popup"] div.ui-jqgrid .ui-jqgrid-bdiv {
+    height: auto !important;
+    min-height: 220px;
+}
+#_sweclient #_swescrnbar {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+#_sweclient #_swecontent {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+ul#siebui-threadbar {
+    margin: 0px;
+    padding-inline-start: 0px;
+}
+/*.siebui-btn-grp-applet {float: left !important;}*/
+
+.ui-jqgrid .ui-jqgrid-htable .ui-jqgrid-sortable {
+    font-weight: 500;
+    /*NIKOZIKO: Alternative for Column Header*/
+    /*font-weight:400;
+	color:#29303f;*/
+}
+.siebui-applet-title {
+    white-space: nowrap;
+}
+.vis-dropdown {
+    margin-top: 3px;
+}
+#Dashboard {
+    margin-bottom: -10px;
+    margin-top: -10px;
+}
+/*NIKOZIKO: Modifying buttons Standard buttons*/
+
+/*NIKOZIKO: Overwritting button size*/
+
+.siebui-label-btn,
+.miniBtnUIC>button,
+.appletButton,
+.appletButtons,
+.siebui-ctrl-btn,
+.appletButton,
+.appletButtonDis,
+.ui-dialog .ui-dialog-content .AppletButtons .siebui-popup-action a,
+.ui-dialog .ui-dialog-content .siebui-popup-select-columns .siebui-popup-ctrl .siebui-btn-icon-e,
+.ui-menu .ui-menu-item a {
+    padding: 1px 6px !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    text-decoration: none;
+}
+.siebui-icon-find {
+    font-size: 15px !important;
+    width: 30px;
+	height: 21px;
+}
+.AppletMenu {
+    padding: 0 !important;
+}
+.siebui-appletmenu li {
+    margin-right: 15px;
+}
+.siebui-btn-grp-search>input {
+    width: 125px !important;
+	height: 17px !important;
+}
+.AppletMenu ul {
+    margin-left: 0px;
+    left: auto !important;
+    top: auto !important;
+    margin-top: -1px;
+}
+/*NIKOZIKO 22Jun2015: Fixed New file button size*/
+
+/*    .siebui-file-label {
+	margin: 3px 2px;
+}*/
+
+/*.no-touch .ui-jqgrid .ui-jqgrid-btable tr:hover td*/
+
+/*NIKOZIKO 06Jun2015: Adding style to MVG on form applets the same as on list applets */
+
+input.siebui-ctrl-mvg[readonly="readonly"] {
+    color: rgb(41, 48, 63);
+    background-color: #ddd;
+    opacity: 1;
+    cursor: default;
+}
+/*NIKOZIKO 06Jun2015: fix for Defect 9280, moodifying MVG and popup applets*/
+
+.siebui-popup-title {
+    height: 23px;
+}
+/*NIKOZIKO 12Oct2015: Fixing MVG Layout, row-counter position*/
+
+.siebui-popup-filter {
+    /*display: -webkit-inline-box !important;*/
+    display: block;
+    padding-right: 10px;
+}
+[name="popup"] tr.AppletButtons td:not([t2_about_popup="true"]) {
+    float: left !important;
+}
+[name="popup"] .AppletButtons {
+    display: flex;
+}
+.AppletButtons span {
+    font-weight: bold !important;
+}
+span.siebui-popup-row-counter {
+    margin: 0 !important;
+}
+.siebui-popup-action {
+    width: 83% !important;
+    float: left;
+    margin-top: 3px;
+}
+/*NIKOZIKO 06Jun2015: End of Defect 9280 fix*/
+
+/*ARTUROZE 07Jul2015: Added for QC 9360*/
+
+.AppletStylePopup button {
+    margin: 2px;
+}
+/*EDUAKOVR 27Jul2015:Added workaround to enable horizontal scrolling in list applets with no records, QC 9282*/
+
+table.ui-jqgrid-btable tr.jqgfirstrow td {
+    border: none;
+}
+table.ui-jqgrid-btable {
+    height: 1px;
+}
+/*NIKOZIKO 28Jul2015: Button text to bold*/
+
+.siebui-applet button span {
+    font-weight: bold;
+}
+.siebui-popup-togglebar {
+    margin-top: 3px;
+}
+.siebui-applet .ui-jqgrid .ui-jqgrid-bdiv {
+    min-height: 40px;
+    /*height:auto !important*/
+}
+.AppletButtons:last-child {
+    margin-top: 2px !important;
+}
+td[style="height:24px;"] {
+    height: 15px !important;
+}
+td[style="height:8px;"] {
+    height: 1px !important;
+}
+.AppletButtons button:not(.siebui-icon-find) {
+    height: 20px !important;
+}
+.AppletButtons {
+    height: auto;
+}
+.AppletButtons:last-child {
+    margin-top: 0px !important;
+}
+.PageItemLabel {
+    display: block !important;
+}
+.siebui-pdq {
+    display: -webkit-inline-box;
+}
+tr[role="rowheader"] th {
+    text-align: left !important;
+    background: #E8E8E8 !important;
+}
+tr[role="rowheader"] th div {
+    color: rgb(41, 48, 63) !important;
+    font-weight: bold !important;
+}
+#s_sctrl_tabView a,
+#s_vctrl_div_tabView a {
+    font-size: 12px
+}
+[hiddenprop="true"] div {
+    padding: 0 !important;
+    margin: 0px !important;
+    height: 0 !important;
+}
+/*NIKOZIKO 30Jul2015: New File button fix*/
+
+.siebui-file-label {
+    /*width: 95px; ainaore0 01Oct2015: NewFile button input is rendered larger then label*/
+    height: 16px !important;
+    padding-bottom: 1px !important;
+    padding-top: 1px !important;
+    margin: 3px 2px;
+    position: relative;
+    /*AINAORE0 07Oct2015: Added for new file button. hide original button choose file */
+    overflow: hidden;
+    /*AINAORE0 07Oct2015: Added for new file button. hide original button choose file */
+}
+.siebui-file-label input {
+    height: 17px !important;
+    margin: -2px 0px 0px 0px !important;
+    padding: 0;
+}
+[t2_about_popup="true"] {
+    width: 100% !important;
+	text-align: right;
+}
+[t2_about_popup="true"] span {
+	text-align: right;
+}
+.ui-jqgrid-sdiv td {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+div[name="popup"] .siebui-popup-action:not([t2_about_popup="true"]) {
+    width: auto !important;
+}
+div[name="popup"] .siebui-popup-row-counter {
+    float: right;
+}
+/*NIKOZIKO 11Aug2015:CustomMenu*/
+
+.T2ApplicationMenu {
+    float: left;
+    height: 40px;
+    line-height: 40px
+}
+.T2ApplicationMenu a:hover {
+    background: #1474bf;
+}
+#_swecontent {
+    top: 118px !important;
+}
+/*NIKOZIKO: PDQ changes*/
+
+#PDQToolbar {
+    font-size: 15px
+}
+#_sweclient #_sweappmenu .PDQToolbarContainer select {
+    width: 200px;
+}
+/*End Of PDQ*/
+
+/*NIKOZIKO 17Aug2015: Adding Changes requested, 3rd big revision*/
+
+div.FormSection {
+    background: lightgray;
+    margin-top: 3px;
+    margin-bottom: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    height: 15px;
+    padding-top: 3px;
+    padding-bottom: 1px;
+}
+div.ui-jqgrid-bdiv tr {
+    border-bottom: 1px solid #ddd;
+}
+div.mceGridField button {
+    margin-top: 1px;
+}
+#img_product_header {
+    max-width: 200px;
+    max-height: 200px;
+}
+.mceGridField input:not([type="checkbox"]):not([type="radio"]),/*:not(.siebui-ctrl-datetime),*//*REV5 */
+.siebui-popup-button input {
+    height: 22px !important;
+    text-overflow: ellipsis;
+}
+.siebui-ecfg-th div {
+    border-bottom: 1px solid grey!important;
+}
+.siebui-ecfg-module .div-table:first-child .AppletButtons {
+    background: lightgrey;
+}
+.siebui-ecfg-header-label,
+.siebui-ecfg-header-label-ext {
+    background: lightgrey;
+}
+.siebui-ecfg-module > .div-table:first-child {
+    border-bottom: 2px solid #AAAAAA;
+}
+td[role="gridcell"] .siebui-icon-datetime,
+td[role="gridcell"] .siebui-icon-mvg,
+td[role="gridcell"] .siebui-icon-dropdown,
+td[role="gridcell"] .siebui-icon-pick,
+td[role="gridcell"] .siebui-icon-currency,
+td[role="gridcell"] .siebui-icon-date,
+.AppletStylePopup .siebui-icon-mvg,
+.AppletStylePopup .siebui-icon-dropdown,
+.AppletStylePopup .siebui-icon-pick,
+.AppletStylePopup .siebui-icon-currency,
+.AppletStylePopup .siebui-icon-date,
+.AppletStylePopup .siebui-icon-datetime {
+    font-size: 11px !important;
+    padding: 0px 0px 0px 4px;
+}
+.AppletButtons .siebui-icon-dropdown {
+    font-size: 11px !important;
+	padding: 4px 0px 4px 5px;
+}
+.T2ApplicationMenu .ui-menubar-item:first-child {
+    border-left: 0px;
+}
+/*NIKOZIKO 19Aug2015: creating list applet first column selector*/
+
+[selectedrechighlight="true"] tr.ui-row-ltr > td:nth-child(2) input[type='text'],
+[selectedrechighlight="true"] tr.ui-row-ltr > td:nth-child(2) textarea {
+    width: calc(100% - 20px) !important;
+}
+/*NIKOZIKO 30Sep2015: fixing transparent text on pickapplet overflow, for some cases like siebui-input-popup0 class*/
+
+.txtarea_container textarea,
+td[role="gridcell"] input[class*="siebui-input-popup"] {
+    padding-right: 24px !important;
+}
+[selectedrechighlight="true"] tr.ui-row-ltr > td[role='gridcell']:nth-child(2),
+[selectedrechighlight="true"] tr.ui-jqgrid-labels > th[role='columnheader']:nth-child(2),
+[selectedrechighlight="true"] tr.ui-row-ltr > td[role='gridcell']:nth-child(2) {
+    text-indent: 20px;
+}
+
+/*ARTJMORS 20Feb2017: Added to exclude T2_Campaign_Name control because textarea icon is not shown when it is lokated on first position in List Applet
+//Control Name must be without spaces
+*/
+[selectedrechighlight="true"] tr.ui-row-ltr > td:nth-child(2):not([id*='T2_Campaign_Name']) textarea {
+    margin-left: 20px;
+}
+[selectedrechighlight="true"] tr.ui-row-ltr > td[role='gridcell']:nth-child(2):not([aria-labelledby$='altCheckBox']) > span[tabindex="-1"] {
+    margin-left: 20px;
+}
+[selectedrechighlight="true"] tr.ui-row-ltr > td[role='gridcell']:nth-child(2) span {
+    text-indent: 0px;
+}
+/*NIKOZIKO 19Jan2016: removing from secret questions*/
+/*REV1*/
+[selectedrechighlight="true"] tr.ui-state-highlight:not([t2_secret_customer="true"]):not([t2_secret_question="true"]) td:nth-child(2):before, [selectedrechighlight="true"] tr.ui-state-highlight.selected-row:not([t2_secret_customer="true"]):not([t2_secret_question="true"]) td:nth-child(2):before {
+    content: "\e689";
+    float: left;
+    font-family: oracle;
+    margin-right: -20px;
+    text-indent: 0px;
+}
+
+/*End of >*/
+
+/*NIKOZIKO 20Aug2015: pagination to display:none*/
+
+div.ui-pager-control table.ui-pg-table td[dir="ltr"] {
+    display: none;
+}
+.siebui-applet-title {
+    font-weight: bold !important;
+}
+/*NIKOZIKO 21Aug2015: fixing paddings for list applet icons*/
+
+table.ui-jqgrid-btable .siebui-extend-icon,
+table.ui-jqgrid-btable .siebui-icon-calc,
+table.ui-jqgrid-btable .siebui-icon-currency,
+table.ui-jqgrid-btable .siebui-icon-date,
+table.ui-jqgrid-btable .siebui-icon-datetime,
+table.ui-jqgrid-btable .siebui-icon-detail,
+table.ui-jqgrid-btable .siebui-icon-dropdown,
+table.ui-jqgrid-btable .siebui-icon-mvg,
+table.ui-jqgrid-btable .siebui-icon-pick,
+table.ui-jqgrid-btable .siebui-icon-phone-outbound,
+table.ui-jqgrid-btable .siebui-icon-mailto,
+table.ui-jqgrid-btable .siebui-icon-date {
+    padding: 0px 4px;
+}
+[aria-labelledby="PopupQuerySrchspec_Label"] {
+    margin-left: 6px !important;
+}
+tr.ui-row-ltr > td[role='gridcell']:nth-child(2) > span.siebui-icon-completed,
+tr.ui-row-ltr > td[role='gridcell']:nth-child(2) > span.siebui-icon-red,
+tr.ui-row-ltr > td[role='gridcell']:nth-child(2) > span.siebui-icon-grey {
+    margin: 0 0 0 5px !important;
+}
+.AppletButtons >div {
+    display: inline-table !important;
+}
+.siebui-btn-grp-search[aria-labelledby="QueryComboBox_Label"],
+.siebui-btn-grp-search[aria-labelledby="QuerySrchSpec_Label"] {
+    height: 20px !important;
+}
+.siebui-btn-grp-search .siebui-icon-dropdown {
+    height: 13px;
+    padding: 1px 4px;
+    margin: 0px 0px 2px -28px;
+}
+.siebui-btn-grp-search[aria-labelledby="QueryComboBox_Label"],
+.siebui-btn-grp-search[aria-labelledby="QuerySrchSpec_Label"],
+.siebui-btn-grp-search .siebui-icon-dropdown,
+.siebui-btn-grp-search .siebui-icon-find {
+    margin-top: 3px !important;
+}
+.siebui-popup-action .siebui-btn-grp-search[aria-labelledby="QueryComboBox_Label"],
+.siebui-popup-action .siebui-btn-grp-search[aria-labelledby="QuerySrchSpec_Label"],
+.siebui-popup-action .siebui-btn-grp-search .siebui-icon-dropdown,
+.siebui-popup-action .siebui-btn-grp-search .siebui-icon-find {
+    margin-top: 0px !important;
+}
+.siebui-dashboard-content-indent {
+    height: 92% !important;
+}
+#Dashboard_S_A1 {
+    height: 8% !important;
+}
+/*textarea styles*/
+
+td:not([role='gridcell']) .txtarea_icon:before {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARBAMAAADJQ1rJAAAAD1BMVEVmmf////9mmcwzZv8zZsxNHKlIAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQffCggNOAJR8XqQAAAAP0lEQVQI113O0QkAIAgEUFc4cKCE23+mzLSs+3qIcooII0MewaO/SKtZyJehR7QQqESKFrdLONodXVnQVY9cTXskGYIj8ofzAAAAAElFTkSuQmCC');
+    font-family: oracle;
+    font-size: 1.2em;
+    color: rgb(20, 116, 191);
+    position: absolute;
+    z-index: 999;
+    cursor: pointer;
+    padding-right: initial;
+    margin-left: -18px;
+    top: 2px;
+}
+.txtarea_container {
+    position: relative;
+    display: table-cell;
+}
+td.txtarea_container textarea {
+    width: 100%!important;
+    /*height: 32px!important;*/
+    /*NIKOZIKO 04Nov2015: Removing to fix Alarm applet*/
+}
+#txtareaedit_txt,
+#txtareaeditinfo_txt {
+    width: 100%;
+    left: -1px;
+    position: relative;
+    resize: none;
+    border: none;
+    font-family: inherit;
+}
+#txtareaedit_txt:focus {
+    outline: 0;
+}
+#txtareaedit_div,
+#txtareaeditinfo_div {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+td[role='gridcell'] textarea {
+    height: 18px !important;
+}
+td[role='gridcell'] .txtarea_icon:before {
+    border: 0px;
+    position: relative !important;
+    top: -2px;
+}
+td[role='gridcell'] textarea {
+    resize: none;
+}
+[hiddencontrol="true"] {
+    display: none;
+}
+.siebui-popup-togglebar {
+    display: table-cell;
+}
+/*NIKOZIKO 06Oct2015: blocking columns displayed cols, blocked by the script*/
+[name='popup'][hiddencolumnsdisplayed=";T2 Insolvency Status;"] .siebui-popup-select-columns select {
+    height: 225px;
+}
+
+/*List of columns*/
+[name='popup'][t2_hidden_columns_displayed*=";T2 Insolvency Status;"] .siebui-popup-select-columns select option[value="T2 Insolvency Status"],
+[name='popup'][t2_hidden_columns_displayed*=";Insolvency Status;"] .siebui-popup-select-columns select option[value="Insolvency Status"],
+[name='popup'][t2_hidden_columns_displayed*=";T2 Contact Role;"] .siebui-popup-select-columns select option[value="T2 Contact Role"],
+[name='popup'][t2_hidden_columns_displayed*=";T2 Contact Role End Date;"] .siebui-popup-select-columns select option[value="T2 Contact Role End Date"],
+[name='popup'][t2_hidden_columns_displayed*=";T2 Contact Role Start Date;"] .siebui-popup-select-columns select option[value="T2 Contact Role Start Date"],
+[name='popup'][t2_hidden_columns_displayed*=";T2 Account Contact Role;"] .siebui-popup-select-columns select option[value="T2 Account Contact Role"],
+[name='popup'][t2_hidden_columns_displayed*=";T2 Account Contact Role End Date;"] .siebui-popup-select-columns select option[value="T2 Account Contact Role End Date"],
+[name='popup'][t2_hidden_columns_displayed*=";T2 Account Contact Role Start Date;"] .siebui-popup-select-columns select option[value="T2 Account Contact Role Start Date"], 
+[name='popup'][t2_hidden_columns_displayed*=";Asset External Integration Id;"] .siebui-popup-select-columns select option[value="Asset External Integration Id"] /*REV16*/
+{
+    display: none;
+}
+/*END of blocking columns displayed cols*/
+
+/*NIKOZIKO 07Oct2015: fix for row size getting larger QC_9722*/
+
+[role="gridcell"] {
+    white-space: nowrap !important;
+}
+/*NIKOZIKO 08Oct2015: fixing row height for textarea when active*/
+
+td[role='gridcell'] .txtarea_icon:before {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANBAMAAACAxflPAAAAD1BMVEVmmf////9mmcwzZv8zZsxNHKlIAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQffCggLMTRLBCjyAAAAOUlEQVQI11XMMQ4AIAwCQIZ+oAkP0oT/v0na6iDLBQaAkLOASOdTGlm6dN+k2GrnmNf+8Ug4z1rNAYZbDIAWrkK8AAAAAElFTkSuQmCC');
+    font-family: oracle;
+    font-size: 1em;
+    color: rgb(20, 116, 191);
+    position: absolute;
+    z-index: 999;
+    cursor: pointer;
+    padding-right: initial;
+    margin-left: -16px;
+    top: 1px;
+}
+td[role='gridcell'] textarea {
+    vertical-align: top;
+}
+/*End of 08Oct2015*/
+
+/*NIKOZIKO 09Oct2015: Added for popup;*/
+
+[name="popup"] .siebui-icon-calc,
+[name="popup"] .siebui-icon-currency,
+[name="popup"] .siebui-icon-date,
+[name="popup"] .siebui-icon-datetime,
+[name="popup"] .siebui-icon-detail,
+[name="popup"] .siebui-icon-dropdown,
+[name="popup"] .siebui-icon-mvg,
+[name="popup"] .siebui-icon-pick,
+[name="popup"] .siebui-icon-phone-outbound,
+[name="popup"] .siebui-icon-mailto {
+    font-size: 11px;
+}
+/*MAKSKRAI 12Oct2015: QC 9713 hiding unnecessary menu items*/
+
+li[data-caption="HIDDEN"] {
+    display: none;
+}
+/*NIKOZIKO 21Oct2015: fixes for popups*/
+
+.siebui-popup-filter .siebui-popup-button {
+    float: left !important;
+}
+[name="popup"] .AppletButtons {
+    height: 30px
+}
+/*NIKOZIKO 22Oct2015: checkboxes aligning to center*/
+
+[role='gridcell'][aria-labelledby$='altCheckBox'] {
+    text-align: center !important;
+}
+/*NIKOZIKO: Added to fix Alarm popup applet */
+
+[name='popup'] td button {
+    margin-right: 1px !important;
+    margin-left: 1px !important
+}
+
+/*NIKOZIKO 16Nov2015: fixing dropdown style in case it contains name longer than field length*/
+div.siebui-smartscript input {
+    vertical-align: top;
+}
+
+/*NIKOZIKO: minor mvg fix for go button*/
+[aria-labelledby="PopupQuerySrchspec_Label"],
+[aria-labelledby="PopupQueryCombobox_Label"]{
+	width:165px !important;
+}
+
+/* ANDRVILD 20Nov2015: added for new applet web template - QC SM 9971 */
+form > div.AppletButtons.siebui-applet-buttons {
+	margin: 5px 0 5px 0;
+}
+
+form > div.AppletButtons.siebui-applet-buttons > div {
+	background:#f5f5f5;
+}
+
+form > div .siebui-applet-title {
+	margin: 5px;
+}
+
+.siebui-row-counter {
+	margin: 5px;
+}
+/* END ANDRVILD 20Nov2015 */
+
+/*NIKOZIKO 06Dec2015: Logging panel RFC: SIEB-877*/
+.t2-logging-panel{
+	position: absolute; 
+	top:  50px; 
+	right: 0px;
+	border: 1px solid #bbb;
+	background: #d8d8d8;
+	/*width: 380px;				MAKSKRAI 6Feb2017: removed for SIEB-6321*/
+	text-align: center;
+	min-height: 420;
+	height: auto;
+    z-index: 999;
+	display:-webkit-box;
+	background: white;
+}
+
+.t2-logging-panel:not(.t2-oach-logging-panel) {	/*MAKSKRAI 6Feb2017: fixed for SIEB-6321*/
+	width: auto !important;
+}
+
+.t2-logging-panel tr td div.FormSection{
+    text-align: center;
+}
+
+.t2-logging-panel td.txtarea_container textarea{
+    width:auto !important;
+}
+
+.t2-log-panel-expand{
+    height: auto;
+    background: #29303f;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+	cursor: pointer;
+}
+
+div.t2-logging-panel:not(.t2-oach-logging-panel) div[t2_expanded="true"] .t2-log-panel-expand:before{
+	content:">>";
+}
+
+div.t2-logging-panel:not(.t2-oach-logging-panel) div[t2_expanded="false"] .t2-log-panel-expand:before{
+	content:"<<";
+}
+
+div.t2-logging-panel:not(.t2-oach-logging-panel) div[t2_expanded="false"] .t2-log-panel-content{
+	width:0px !important;
+	/*height:0px !important;*/ /*REV3*/
+	visibility:hidden;/*REV4*/
+}
+.siebui-drilldown-input{
+	white-space: nowrap;
+}
+[t2_hidden_object = "true"]{
+	display:none;
+}
+
+/*AINAORE0 05Jan2015: Added .siebui-icon-createrecord for "T2 Activity Service Request List Applet - Tiny"; QC 10085*/
+[t2_sr_log_panel_mode="true"] .AppletButtons .siebui-icon-confirmmethod,
+[t2_sr_log_panel_mode="true"] .AppletButtons .siebui-icon-newrecord:not([data-display="Link Service Request"]):not([data-display="Länk Ärende"]),/*NIKOZIKO 24May2016 fix for QC11000*/
+[t2_sr_log_panel_mode="true"] .AppletButtons .siebui-icon-createrecord{
+	display:none;
+}
+/*END of NIKOZIKO 06Dec2015*/
+
+/*ARTUROZE 04Jan2016: QC Siebel_Maintenance 10129*/
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill, input:-webkit-autofill:focus{
+    -webkit-box-shadow: 0px 0px 0px 1000px white inset;
+}
+
+/*REV2*/
+#t2_log_panel_sr_number_field{
+	padding-top:2px;
+	border:1px solid #727780;
+	background-color:#ddd;
+	height:18px;
+	width:160px;	
+}
+#t2_log_panel_sr_number_field input{
+	display:none;
+}
+
+[t2_hidden_applet="true"],
+[t2_hidden_applet="true"] div{
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 0 !important;
+}
+
+/*REV7 NIKOZIKO 31Mar2016: Log Panel tabs*/
+#t2_log_tabs_menu {
+    height: 29px;
+    width:100%;
+    margin-left:2px;
+    float: left;
+    clear: both;
+	display:flex;
+}
+
+#t2_log_tabs_menu li {
+    width:100%;
+    height: 19px;
+    line-height: 19px;
+    float: center;
+    margin-right: 2px;
+    background-color: #ccc;
+    border-top: 1px solid #d4d4d1;
+    border-right: 1px solid #d4d4d1;
+    border-left: 1px solid #d4d4d1;
+}
+#t2_log_tabs_menu li[aria-disabled="true"] {
+	display:none;
+}
+
+
+#t2_log_tabs_menu ul{
+	width:100%;
+}
+#t2_log_tabs_menu li.current {
+    position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    z-index: 5;
+}
+
+#t2_log_tabs_menu li a {
+	width:100%
+}
+#t2_log_tabs_menu [aria-selected="true"]{
+	margin-top:-1px;
+	background-color: #29303f;
+	background:#29303f !important;
+	border-color: #29303f;
+}
+#t2_log_tabs_menu [aria-selected="true"] a {
+	color: #fff;
+	background-color: #29303f;
+	border-color: #29303f;
+	height: 19px;
+	font-weight: 400;
+}
+
+#t2_log_tabs [role="tab"] {
+	margin-top:1px;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+    float: left;
+    margin-bottom: 19px;
+}
+
+.t2_log_panel_tab_content {
+    padding-top: 19px;
+    min-width:350px;
+}
+
+/*NIKOZIKO 22Apr2016: Added for collapsing divs without applets*/
+.t2_collapse_if_empty:empty {
+	width:0px !important;
+}
+
+[role='gridcell'][aria-labelledby$='altCheckBox']  span:first-child {
+	display: table-cell !important;
+	padding-left:25px
+}
+
+.t2_log_panel_tab_content[aria-hidden="true"]{
+	display:block !important;
+	visibility:hidden;
+	width: 0px;
+	height: 0px;
+	padding-top: 0;
+}
+/*REV8*/
+[t2_red_control='true']{
+	background:red;
+}
+[t2_iota_control='true']{
+	background:#FDFDE3;
+}
+[t2_red_control='true'] span{
+	color:white;
+}
+
+[t2_red_control='true']:focus,
+[t2_red_control='true']:hover{
+	background:#980000;
+}
+
+/*REV9*/
+[t2_about_popup="true"] div:empty,
+[t2_about_popup="true"] span:empty{
+	display:none;
+}
+/*Workaround for QC11227*/
+div.siebui-applet .siebui-ctrl-link {
+	display:inline-block !important;
+}
+
+/*REV11*/
+#ResContainer table{
+	width:100% !important;
+}
+#ResContainer .ui-jqgrid .ui-jqgrid-bdiv{
+	overflow-y:auto !important;
+}
+
+#ResContainer table td{
+	padding-left: 5px !important;
+}
+
+/*REV12*/
+.t2_resolution_code_highlight {
+	background: #999900;
+}
+
+/*REV13*/
+#t2_brdcst {
+	width: 98%;
+	float: left;
+	margin-top:10px;
+	font-size:15px !important;
+	font-weight:bold;
+}
+#t2_brdcst_selected .t2_broadcast_message,
+#t2_message_scrll,
+#t2_message_container{
+	background-color: rgb(41, 48, 63);
+}
+
+#t2_message_scrll .t2_msg_brdcst:hover{
+	background-color: rgb(20, 30, 63);
+	/*cursor: pointer;*/
+	cursor:auto;
+}
+
+/*dropdown and scroll*/
+#t2_brdcst_selected {
+	width: 100%;
+}
+
+#t2_brdcst_selected .t2_broadcast_message {
+	width:100%;
+}
+#t2_brdcst_selected #t2_dropdown {
+	width:0px;
+}
+
+#t2_message_container{
+	width:100%;
+	max-height: 210px;
+	min-height: 210px;
+	overflow-y: overlay;
+	position:relative;
+	z-index:9999;
+}
+
+#t2_message_scrll{
+	width: 100%;
+}
+
+.t2_broadcast_message {
+	width: 100%;
+	line-height: 20px;
+	display: inline-flex;
+	overflow:hidden;
+}
+#t2_brdcst_selected {
+	display: inline-flex;
+}
+.t2_msg_brdcst {
+	width: 89%;
+	overflow: hidden;
+	max-height: 20px;
+}
+.t2_close_brdcst {
+	margin-left:5px;
+	margin-right:5px;
+}
+.t2_broadcast_open_details {
+	width: 5%;
+}
+.t2_broadcast_open_details:after {
+	content: "...";
+	float: right;
+	cursor: pointer;
+	text-decoration: underline;
+    font-weight: bold;
+	font-style: normal;
+	color:darkturquoise;
+}
+/*.t2_close_brdcst::before {
+	content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAg0lEQVQ4T72TUQ7AEBBErQtVT+QkYsRJnKjthWh8EBIVQeqHLPMyu3aJLS5a1LO9AAAihHD1XBHRCeBObyoHWusAoJtVvDfGZF0T4JxjUsoKlGJDgKgsIeV5GJAgcS/d/AdYSmFLEb/+slsDpdTBOc9N0oJ474W19mk20sxc7J2FGQcvWPlmER6JlIoAAAAASUVORK5CYII=');
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+}*/
+.t2_close_brdcst {
+	cursor: pointer;
+	color: lightgray;
+	font-size:12px;
+}
+
+
+#t2_dropdown:after {
+	content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkklEQVQ4T2NkoBAwUqifYbgZsGDBgs0MDAw+BMJlS0JCgi9MDUoYLFiw4H9AQABe/Rs2bGBISEiA68MIRJAhrq6uYEP+/fsHppmYmMD07t27UTSDxLDGAsgQS0tLhu/fv4M1cnJyMhw/fhxDM04DQBIgQ1RUVMAG3LlzB6tmvAbADAHRyH5GD6DhlpDIyVgUhwEALzArEVJjHjAAAAAASUVORK5CYII=');
+	cursor: pointer;
+	float:right;
+}
+.t2_brdcst_severity_low {
+	color: #00e600;
+}
+.t2_brdcst_severity_medium {
+	color: yellow;
+}
+.t2_brdcst_severity_critical {
+	color: red;
+}
+
+.t2_brdcst_severity_read {
+	color: grey;
+}
+.t2_brdcst_def_severity,
+.t2_brdcst_severity_empty{
+	color:whitesmoke;
+	font-style: italic;
+}
+
+.t2_menu_panel_wrapper{
+	width:100%;
+	display:inline-block;
+}
+
+.t2_menu_left{
+	float:left;
+}
+
+.t2_menu_right{
+	float:right;
+}
+
+.t2_menu_center{
+	overflow:auto;
+}
+
+#t2_brdcst_popup {
+	width: 300px;
+	height: 400px;
+	background-color: bisque;
+}
+
+.t2_brdcst_txtarea_div {
+	text-align: center;
+}
+
+#t2_brdcst_abstract_txt{
+	height:100px;
+}
+#t2_brdcst_msg_txt{
+	height:230px;
+}
+.t2_brdcst_popup_txt,
+.t2_brdcst_txtarea_div div{
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	text-align: left;
+}
+
+.t2_broadcast_counter{
+	padding-left:5px;
+	width:80px;
+	color: white;
+	margin-left: 5px;
+    margin-right: 10px;
+}
+
+/*REV15*/
+#t2_message_scrll .t2_broadcast_message:nth-child(1){
+	display:none;
+}
+#t2_brdcst_msg_txt, #t2_brdcst_abstract_txt{
+	font-family: Arial,sans-serif;
+}
+
+/*NIKOZIKO 26Oct2016: Fix for Chrome update, can't copy message from textarea*/
+#txtareaedit_txt[readonly="readonly"]{
+	color: rgb(41, 48, 63);
+    background-color: #ddd;
+}
+
+/*NIKOZIKO 28Oct2016: Added for QC 11995*/
+[t2_control_ro='true'] .siebui-drilldown-input{
+	background:#ddd;
+}
+
+/*NIKOZIKO 24Nov2016: QC 6874 */
+/*.t2_msg_brdcst.blink {color:transparent;}*/
+.t2_msg_brdcst {transition: color 1000ms ease;}
+
+#t2_brdcst.blink .t2_broadcast_message:not(.t2_brdcst_severity_read):not(.t2_brdcst_severity_empty) .t2_msg_brdcst{
+	color:transparent;
+}
+
+.t2_siebui-ecfg-inline-attr {
+    text-align: -webkit-center;
+}
+
+ul.ui-menu {
+    list-style: none;
+    padding-left: 0px;
+}
+
+select.siebui-ctrl-select option {
+    min-height: 1em;
+}

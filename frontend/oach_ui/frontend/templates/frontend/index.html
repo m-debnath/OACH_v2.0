@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <title>OACH v2.0 CRM</title>
+    <link rel="shortcut icon" href="{% static "images/favicon.ico" %}" type="image/x-icon">
+    <link type="text/css" href="{% static "css/t2_base.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/t2.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/modals.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/t2_oach.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/colorbox.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/font-awesome.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/opentip.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/t2_jquery_ui.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/t2_oach_second.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/datatables.min.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/account_form.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/proactivity.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/products.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/orders.css" %}" rel="stylesheet">
+    <link type="text/css" href="{% static "css/invoices.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<body>
+    <div id="main" class="t2_oach_datepicker">
+        <div name="_sweclient" id="_sweclient">
+            <div style="height:100%;">
+                <div name="_sweappmenu" id="_sweappmenu" ot="_sweappmenu Frame" role="navigation" title="Application Menu">
+                    <div style="height:100%;">
+                        <div id="s_sctrl" class="siebui-nav-hb"><a href="#" class="sidebarNavButton" id="sidebarCloseButton" title="Close Sidebar">«</a> </div>
+                        <div> </div>
+                        <meta charset="utf-8">
+                        <div class="t2_menu_panel_wrapper">
+                            <div class="t2_menu_left">
+                                <div class="siebui-logo"></div>
+                                <div class="T2ApplicationMenu" nowrap="" role="navigation" title="Application Menu">
+                                    <span id="s_0" class="ui-menubar ui-widget-header ui-helper-clearfix" role="menubar">
+                                        <li data-caption="Menu" class="siebui-appmenu-item  ui-menubar-item" role="presentation">
+                                            <a href="javascript:void(0)" aria-disabled="false" class="ui-button ui-widget ui-button-text-only ui-menubar-link" role="menuitem" aria-haspopup="true"><span class="ui-button-text">Menu</span></a>
+                                            <ul id="ui-id-21" class="ui-menu ui-widget ui-widget-content ui-corner-all" role="menubar" tabindex="0" aria-hidden="true" aria-expanded="false" style="display: none;">
+                                                <li data-caption="Site Map             [Ctrl+Shift+A]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-22" tabindex="-1" role="menuitem">Site Map             [Ctrl+Shift+A]</a></li>
+                                                <li data-caption="Send Email...                  [F9]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-23" tabindex="-1" role="menuitem">Send Email...                  [F9]</a></li>
+                                                <li data-caption="Send Wireless Message...   [Alt+F9]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-24" tabindex="-1" role="menuitem">Send Wireless Message...   [Alt+F9]</a></li>
+                                                <li data-caption="Tasks                [Ctrl+Shift+Y]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-25" tabindex="-1" role="menuitem">Tasks                [Ctrl+Shift+Y]</a></li>
+                                                <li data-caption="Save Query As               [Alt+S]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-26" tabindex="-1" role="menuitem">Save Query As               [Alt+S]</a></li>
+                                                <li data-caption="Delete Query" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-27" tabindex="-1" role="menuitem">Delete Query</a></li>
+                                                <li data-caption="Customer Dashboard" class="siebui-appmenu-item  ui-menu-item" role="presentation">
+                                                    <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" aria-haspopup="true" id="ui-id-28" tabindex="-1" role="menuitem"><span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>Customer Dashboard</a>
+                                                    <ul class="ui-menu ui-widget ui-widget-content ui-corner-all" role="menubar" aria-hidden="true" aria-expanded="false" style="display: none;">
+                                                        <li data-caption="Clear Customer Dashboard[Ctrl+Shift+U]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-38" tabindex="-1" role="menuitem">Clear Customer Dashboard[Ctrl+Shift+U]</a></li>
+                                                        <li data-caption="Close Customer Dashboard[Ctrl+Shift+Q]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-39" tabindex="-1" role="menuitem">Close Customer Dashboard[Ctrl+Shift+Q]</a></li>
+                                                        <li data-caption="Open Customer Dashboard[Ctrl+Shift+D]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-40" tabindex="-1" role="menuitem">Open Customer Dashboard[Ctrl+Shift+D]</a></li>
+                                                        <li data-caption="Update Customer Dashboard[Ctrl+Shift+P]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-41" tabindex="-1" role="menuitem">Update Customer Dashboard[Ctrl+Shift+P]</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li data-caption="HIDDEN" class="siebui-appmenu-item  ui-menu-item" role="presentation">
+                                                    <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" aria-haspopup="true" id="ui-id-29" tabindex="-1" role="menuitem"><span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>HIDDEN</a>
+                                                    <ul class="ui-menu ui-widget ui-widget-content ui-corner-all" role="menubar" aria-hidden="true" aria-expanded="false" style="display: none;">
+                                                        <li data-caption="Navigate" class="siebui-appmenu-item  ui-menu-item" role="presentation">
+                                                            <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" aria-haspopup="true" id="ui-id-42" tabindex="-1" role="menuitem"><span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>Navigate</a>
+                                                            <ul class="ui-menu ui-widget ui-widget-content ui-corner-all" role="menubar" aria-hidden="true" aria-expanded="false" style="display: none;">
+                                                                <li data-caption="Previous Record             [Alt+,]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-45" tabindex="-1" role="menuitem">Previous Record             [Alt+,]</a></li>
+                                                                <li data-caption="Next Record             [Ctrl+Down]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-46" tabindex="-1" role="menuitem">Next Record             [Ctrl+Down]</a></li>
+                                                                <li data-caption="Previous Record Set    [Ctrl+Alt+,]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-47" tabindex="-1" role="menuitem">Previous Record Set    [Ctrl+Alt+,]</a></li>
+                                                                <li data-caption="Next Record Set        [Alt+Ctrl+Y]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-48" tabindex="-1" role="menuitem">Next Record Set        [Alt+Ctrl+Y]</a></li>
+                                                                <li data-caption="First Records               [Alt+F]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-49" tabindex="-1" role="menuitem">First Records               [Alt+F]</a></li>
+                                                                <li data-caption="Last Records                [Alt+L]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-50" tabindex="-1" role="menuitem">Last Records                [Alt+L]</a></li>
+                                                                <li data-caption="Go to iHelp Map        [Ctrl+Alt+I]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-51" tabindex="-1" role="menuitem">Go to iHelp Map        [Ctrl+Alt+I]</a></li>
+                                                                <li data-caption="Previous Task Step [Ctrl+Alt+SPACE]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-52" tabindex="-1" role="menuitem">Previous Task Step [Ctrl+Alt+SPACE]</a></li>
+                                                                <li data-caption="Next Task Step         [Ctrl+SPACE]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-53" tabindex="-1" role="menuitem">Next Task Step         [Ctrl+SPACE]</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li data-caption="Queries" class="siebui-appmenu-item  ui-menu-item" role="presentation">
+                                                            <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" aria-haspopup="true" id="ui-id-43" tabindex="-1" role="menuitem"><span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>Queries</a>
+                                                            <ul class="ui-menu ui-widget ui-widget-content ui-corner-all" role="menubar" aria-hidden="true" aria-expanded="false" style="display: none;">
+                                                                <li data-caption="New Query                   [Alt+Q]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-54" tabindex="-1" role="menuitem">New Query                   [Alt+Q]</a></li>
+                                                                <li data-caption="Refine Query                [ALT+G]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-55" tabindex="-1" role="menuitem">Refine Query                [ALT+G]</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li data-caption="Record" class="siebui-appmenu-item  ui-menu-item" role="presentation">
+                                                            <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" aria-haspopup="true" id="ui-id-44" tabindex="-1" role="menuitem"><span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>Record</a>
+                                                            <ul class="ui-menu ui-widget ui-widget-content ui-corner-all" role="menubar" aria-hidden="true" aria-expanded="false" style="display: none;">
+                                                                <li data-caption="New Record (SWE)       [Ctrl+Alt+N]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-56" tabindex="-1" role="menuitem">New Record (SWE)       [Ctrl+Alt+N]</a></li>
+                                                                <li data-caption="Copy Record (SWE)          [Ctrl+B]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-57" tabindex="-1" role="menuitem">Copy Record (SWE)          [Ctrl+B]</a></li>
+                                                                <li data-caption="Save Record                [Ctrl+S]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-58" tabindex="-1" role="menuitem">Save Record                [Ctrl+S]</a></li>
+                                                                <li data-caption="Undo Record (SWE)          [Ctrl+U]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-59" tabindex="-1" role="menuitem">Undo Record (SWE)          [Ctrl+U]</a></li>
+                                                                <li data-caption="Delete Record (SWE)        [Ctrl+D]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-60" tabindex="-1" role="menuitem">Delete Record (SWE)        [Ctrl+D]</a></li>
+                                                                <li data-caption="Record Count         [Ctrl+Shift+3]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-61" tabindex="-1" role="menuitem">Record Count         [Ctrl+Shift+3]</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li data-caption="" class="siebui-appmenu-item siebui-appmenu-separator ui-menu-item" role="presentation"> <a href="javascript:void(0)" class="ui-state-disabled ui-corner-all" id="ui-id-30" tabindex="-1" role="menuitem"></a></li>
+                                                <li data-caption="Change Records..." class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-31" tabindex="-1" role="menuitem">Change Records...</a></li>
+                                                <li data-caption="About View..." class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-32" tabindex="-1" role="menuitem">About View...</a></li>
+                                                <li data-caption="About SRF..." class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-33" tabindex="-1" role="menuitem">About SRF...</a></li>
+                                                <li data-caption="About Record...        [Ctrl+Alt+K]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="true" class="ui-state-disabled ui-corner-all" id="ui-id-34" tabindex="-1" role="menuitem">About Record...        [Ctrl+Alt+K]</a></li>
+                                                <li data-caption="Technical Support...   [Ctrl+Alt+J]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-35" tabindex="-1" role="menuitem">Technical Support...   [Ctrl+Alt+J]</a></li>
+                                                <li data-caption="User Preferences" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="javascript:void(0)" aria-disabled="false" class="ui-corner-all" id="ui-id-36" tabindex="-1" role="menuitem">User Preferences</a></li>
+                                                <li data-caption="Log Out              [Ctrl+Shift+X]" class="siebui-appmenu-item  ui-menu-item" role="presentation"> <a href="{% url 'oach-logout' %}" aria-disabled="false" class="ui-corner-all" id="ui-id-37" tabindex="-1" role="menuitem">Log Out              [Ctrl+Shift+X]</a></li>
+                                            </ul>
+                                        </li>
+                                    </span>
+                                </div>
+                                <div class="T2ApplicationMenu" nowrap="">
+                                    <span class="ui-menubar ui-widget-header ui-helper-clearfix" role="menubar">
+                                        <li onclick="javascript:void(0);" class="siebui-appmenu-item  ui-menubar-item" role="presentation"><a id="T2SiteMap" href="javascript:void(0)" aria-disabled="false" class="ui-button ui-widget ui-button-text-only ui-menubar-link" role="menuitem" aria-haspopup="true"><span class="ui-button-text">Site Map</span></a></li>
+                                        <li class="siebui-appmenu-item  ui-menubar-item" role="presentation"><a id="T2Tasks" href="javascript:void(0)" onclick="javascript:void(0);" aria-disabled="false" class="ui-button ui-widget ui-button-text-only ui-menubar-link" role="menuitem" aria-haspopup="true"><span class="ui-button-text">Tasks</span></a></li>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="t2_menu_right">
+                                <div id="siebui-toolbar-settings" class="siebui-banner-btn siebui-toolbar-settings">
+                                    <ul class="siebui-toolbar" role="navigation" aria-label="Settings">
+                                        <li id="tb_0" class="siebui-toolbar-enable" data-cmd="undefined" data-subtoolbar="Y" role="button" title="Settings" name="Root" tabindex="0" data-tbindex="0"><span class="siebui-icon-tb-root ToolbarButtonOn"><img src="{% static "images/photo.png" %}" class="ToolbarButtonOn"></span></li>
+                                    </ul>
+                                </div>
+                                <div id="HTMLMessageBar" class="siebui-banner-btn siebui-btn-notify header-top tr" role="navigation" aria-label="Notification"><a href="#" aria-hidden="true"></a></div>
+                                <div id="tb_12" class="siebui-banner-btn ToolbarButton"></div>
+                                <div id="tb_11" class="siebui-banner-btn PDQToolbarContainer">
+                                    <form name="SWEForm0" method="post" action="/ecommunications_lvi/start.swe">
+                                        <div id="PDQToolbar" class="siebui-pdq PDQWidth">
+                                            <div class="PageItemLabel">Saved Queries:</div>
+                                            <div class="PageItem" role="navigation" title="Saved Queries">
+                                                <select name="s_pdq" title="Saved Queries">
+                                                    <option selected=""></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="SWEFo" value="SWEForm0">
+                                        <input type="hidden" name="SWENeedContext" value="false">
+                                        <input type="hidden" name="SWENoHttpRedir" value="false">
+                                        <input type="hidden" name="SWESPNR" value="">
+                                        <input type="hidden" name="SWESPNH" value="">
+                                        <input type="hidden" name="SWEH" value="">
+                                        <input type="hidden" name="SWEC" value="2">
+                                        <input type="hidden" name="SWEBID" value="-1">
+                                        <input type="hidden" name="SWEW" value="">
+                                        <input type="hidden" name="SRN" value="">
+                                        <input type="hidden" name="SWETS" value="">
+                                        <input type="hidden" name="SWEWN" value="">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="t2_menu_center">
+                                <div id="t2_brdcst" title="" class="blink">
+                                    <div id="t2_brdcst_selected">
+                                        <div class="t2_broadcast_message t2_brdcst_severity_empty"><span class="t2_close_brdcst">✖</span><span class="t2_msg_brdcst">Empty broadcast bar</span><span class="t2_broadcast_open_details"></span></div>
+                                        <div id="t2_dropdown"></div>
+                                    </div>
+                                    <div id="t2_message_container" style="display: none;">
+                                        <div id="t2_message_scrll"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div name="_swethreadbar" id="_swethreadbar" ot="_swethreadbar Frame">
+                    <div style="height:100%;"><div id="s_ssvctrl" class="siebui-nav-hb"> </div>
+                        <div> </div>
+                        <span id="s_tb">
+                            <span id="s_tb">
+                                <ul id="siebui-threadbar">
+                                    <li><span class="siebui-crumb">&nbsp;</span></li>
+                                </ul>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div name="_swescrnbar" id="_swescrnbar" ot="_swescrnbar Frame" class="addshowactivated">
+                    <a href="#" id="openSidebarButton" title="Open Sidebar" class="hidden">»</a>
+                    <div style="height:100%;">
+                        <div class="tier1Back">
+                            <div id="s_sctrl" class="siebui-nav-tab siebui-view-navs"> 
+                                <div class="siebui-nav-tabs siebui-nav-tabScreen ui-tabs ui-widget ui-widget-content ui-corner-all ui-tabs-collapsible" id="s_sctrl_tabScreen" role="navigation" title="First Level View Bar">
+                                    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist" aria-live="off">
+                                        <li class="siebui-active-navtab ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="s_sctrl_tabScreen_noop" aria-labelledby="ui-id-469" aria-selected="true">
+                                            <a data-tabindex="tabScreen0" aria-label="Home Selected" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-469">
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="s_sctrl_tabScreen_noop" aria-labelledby="ui-id-470" aria-selected="false">
+                                            <a data-tabindex="tabScreen1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-470">
+                                                <span class="siebui-icon-accounts_icon"><img src="{% static "images/accounts_icon.gif" %}"></span>
+                                                OACH Overview
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="siebui-invisible-el siebui-nav-tabScreen ui-tabs-panel ui-widget-content ui-corner-bottom" id="s_sctrl_tabScreen_noop" aria-labelledby="ui-id-478" role="tabpanel" aria-expanded="true" aria-hidden="false" style="display: none;"></div>
+                                </div>
+                                <div class="siebui-nav-tabs siebui-empty-tabs siebui-nav-tabView" id="s_sctrl_tabView" role="navigation" title="Second Level View Bar"></div>
+                            </div>
+                            <div> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="toolbar_overlay" class="ui-widget-overlay ui-front" style="display: none;"></div>
+            <div id="toolbar_popup" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front siebui-toolbar-settings-popup ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="toolbar_popup" aria-labelledby="ui-id-122" style="position: absolute; height: auto; width: 300px; top: 373.5px; left: 790px; display: none;">
+                <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+                    <span id="ui-id-122" class="ui-dialog-title">&nbsp;</span>
+                    <button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="close">
+                        <span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+                        <span class="ui-button-text">close</span>
+                    </button>
+                </div>
+                <div name="toolbar_popup" class="siebui-tb-popup ui-dialog-content ui-widget-content" style="width: auto; min-height: 150px; max-height: none; height: auto;">
+                    <div class="siebui-tb-popup-top">
+                        <div autofocus="" tabindex="1" id="tb_item_0" class="siebui-tb-item-img">
+                            <span ot="ImageControl" rn="Login User Image" un="undefined">
+                                <span class="siebui-icon-login-user-image">
+                                    <img src="{% static "images/photo.png" %}">
+                                </span>
+                            </span>
+                        </div>
+                        <div tabindex="2" id="tb_item_1" class="siebui-tb-item-text">
+                            <span ot="Text" rn="Login User Name" un="{{ user_full_name }}">{{ user_full_name }}</span>
+                        </div>
+                        <div tabindex="3" id="tb_item_2" class="siebui-tb-item-text">
+                            <span ot="Text" rn="Login User eMail" un="{{ user_email_addr }}">{{ user_email_addr }}</span>
+                        </div>
+                    </div>
+                    <div class="siebui-tb-popup-bottom">
+                        <div tabindex="4" id="tb_item_3" class="siebui-tb-item-btn siebui-tb-item-enabled">
+                            <button class="siebui-ctrl-btn appletButton" ot="Button" rn="Settings" un="Settings">Settings</button>
+                        </div>
+                        <div tabindex="5" id="tb_item_4" class="siebui-tb-item-btn siebui-tb-item-enabled">
+                            <button class="siebui-ctrl-btn appletButton" ot="Button" rn="Logout" un="Logout">Logout</button>
+                        </div>
+                    </div>
+                    <div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div>
+                    <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+                    <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+                    <div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div>
+                    <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+                    <div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div>
+                    <div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div>
+                    <div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div>
+                </div>
+            </div>
+            <div id="Home" style="display: block;"></div>
+            <div id="OACH Overview" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="menu_overlay" class="ui-menu-overlay" style="display: none;"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>let sessionData = {{ session_data|safe }}</script>
+    <script src="{% static "frontend/main.js" %}"></script>
+</body>
+</html>

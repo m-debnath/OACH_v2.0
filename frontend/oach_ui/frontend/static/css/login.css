@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Regular-webfont.eot');
+    src: url('./fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),url('./fonts/Roboto-Regular-webfont.woff') format('woff'),url('./fonts/Roboto-Regular-webfont.ttf') format('truetype'),url('./fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+html,body {
+    height: 100%;
+}
+
+.oach-login-body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    outline: 0;
+    color: #404453;
+    background-color: #f5f5f5
+}
+
+.oach-login-body form {
+    width: 900px;
+    margin: 0 auto;
+    height: 100%
+}
+
+.oach-login-body .oach-login-container {
+    background: #fff;
+    min-height: 100%;
+    height: auto;
+    box-shadow: #d2e9f5 0 0 4px 0;
+    box-sizing: border-box
+}
+
+
+.oach-login-body .oach-login-form,.oach-login-body .oach-error,.oach-login-body .oach-browsercomp,.oach-login-body .oach-browsercomp-header {
+    margin-top: 40px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.oach-login-body .oach-fieldset {
+    padding: 5px 0
+}
+
+.oach-login-body .oach-fieldset .oach-ctrl-input,.oach-login-body .oach-fieldset .oach-ctrl-password {
+    vertical-align: middle;
+    width: 268px
+}
+
+.oach-login-body .oach-fieldset .oach-ctrl-input input,.oach-login-body .oach-fieldset .oach-ctrl-password input {
+    border: 1px solid #727780;
+    box-shadow: #d2e9f5 0 0 4px 0;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    outline: 0;
+    width: 100%
+}
+
+.oach-login-body .oach-fieldset .oach-ctrl-input input:active,.oach-login-body .oach-fieldset .oach-ctrl-password input:active,.oach-login-body .oach-fieldset .oach-ctrl-input input:focus,.oach-login-body .oach-fieldset .oach-ctrl-password input:focus {
+    box-shadow: 1px 1px 2px #1474bf inset;
+    color: #29303f
+}
+
+.oach-login-body .oach-login-error .oach-ctrl-input input,.oach-login-body .oach-login-error .oach-ctrl-password input {
+    border: 1px solid #c24839;
+    box-shadow: #d2e9f5 0 0 4px 0;
+    box-sizing: border-box
+}
+
+.oach-login-body .oach-login-title {
+    font-size: 1.2em;
+    padding: 20px 0;
+    text-shadow: 0 0 1px white;
+    text-align: center
+}
+
+.oach-login-body .oach-login-btn {
+    margin-top: 20px;
+    text-align: center
+}
+
+.oach-login-body .oach-login-btn input:enabled{
+    color: #fff;
+    background-color: #385427;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;    
+    vertical-align: middle;    
+    padding: 10px 20px;
+    border-radius: 4px;    
+}
+
+.oach-login-body .oach-login-btn input:disabled{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;    
+    vertical-align: middle;    
+    padding: 10px 20px;
+    border-radius: 4px;    
+}
+
+.oach-login-body .oach-error {
+    color: #c24839;
+    max-height: 76px;
+    text-align: justify
+}
+
+.oach-login-body .oach-error br {
+    display: none
+}
+
+.oach-login-body .oach-login-footer {
+    line-height: 1.4em;
+    font-size: .8em;
+    color: #727780
+}
+
+.oach-login-body .oach-login-footer .oach-ctrl-label {
+    display: block;
+    font-weight: bold
+}
+
+.oach-login-body .oach-browsercomp,.oach-login-body .oach-browsercomp-header {
+    color: #404453
+}
+
+.oach-login-body .oach-browsercomp a,.oach-login-body .oach-browsercomp-header a {
+    text-decoration: none;
+    color: #1474bf
+}
+
+.oach-login-body .oach-browsercomp-header * {
+    display: inline-block
+}
+
+.oach-login-body .oach-login-logo {
+}
+
+/* Environment specific */
+
+/* METADATA */
+.oach-login-container[env_type="metadata"]{
+    background: lightsteelblue;
+}
+
+/* TEST */
+.oach-login-container[env_type="test"]{
+    background:orange;
+}
+/* END Environment specific */
+
+#loginLogo {
+    font-size: 36px;
+    color: darkred;
+    position: initial;
+    padding-top: 70px;
+    text-align: center;
+}

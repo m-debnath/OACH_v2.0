@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+    sd_api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8020:8000
+        volumes:
+            - .:/app
+        depends_on: 
+            - sd_db
+    sd_db:
+        image: mysql/mysql-server
+        restart: always
+        environment:
+            MYSQL_DATABASE: sd_db
+            MYSQL_ROOT_PASSWORD: Tele2SDdbPa##w0rd
+        ports:
+            - "33067:3306"
+networks:
+    default:
+        name: tele2corp

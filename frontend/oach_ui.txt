@@ -1,0 +1,143 @@
+# Ref
+https://www.django-rest-framework.org/tutorial/quickstart/
+https://www.youtube.com/watch?v=0iB5IPoTDts&t
+
+# Using Windows terminal
+
+# Install Django and Django REST framework into local
+pip install django
+pip install djangorestframework
+
+# Create local Django Project
+django-admin startproject oach_ui
+
+# Add requirements.txt
+Django==3.1.3
+djangorestframework==3.12.2
+mysqlclient==2.0.1
+django-mysql==3.9
+django-cors-headers==3.5.0
+django-requestlogs==0.2.3
+django-ipware==3.0.2
+python-dateutil==2.8.1
+requests==2.25.1
+Babel==2.9.0
+
+# Create Dockerfile
+FROM python:3.9
+ENV PYTHONUNBUFFERED 1
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+COPY . /app
+
+CMD python manage.py runserver 0.0.0.0:8000
+
+#Create docker-compose.yml
+version: '3.8'
+services:
+    frontend:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8050:8000
+        volumes:
+            - .:/app
+networks:
+    default:
+        name: tele2corp
+
+# Run in terminal
+docker compose up
+
+# Check if accounts_api is up and running on same network as mysql db
+docker ps --filter "network=tele2corp"
+
+docker compose exec frontend bash
+python manage.py startapp frontend
+
+# Modify settings.py
+	# Change allowed hosts
+	ALLOWED_HOSTS = ['*']
+	# Add below in INSTALLED_APPS
+		'corsheaders',
+		'frontend',
+	# Add below in MIDDLEWARE
+		'corsheaders.middleware.CorsMiddleware',
+	# Add below constant
+	CORS_ORIGIN_ALLOW_ALL = True
+	# Change DATABASES to below
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.mysql',
+			'NAME': 'oach_db',
+			'USER': 'oachsrvc',
+			'PASSWORD': 'Tele20ACHdbPa##w0rd',
+			'HOST': 'oach_db_oach_db_1',
+			'PORT': '3306',
+		}
+	}
+	
+	
+# Migrating models
+docker compose exec frontend bash
+python manage.py makemigrations
+python manage.py migrate
+	
+# Create Super User
+docker compose exec api bash
+python manage.py createsuperuser
+oachadmin
+Tele20ACHap!Pa##w0rd
+
+# verify by logging into http://localhost:8035/admin/
+
+# create directory structure under frontend
+├───src
+│   └───components
+├───static
+│   ├───css
+│   ├───frontend
+│   └───images
+├───templates
+
+# Initiate npm
+PS [MUKUL-LEGION7] frontend >  npm init -y
+
+# Install node modules
+PS [MUKUL-LEGION7] frontend >  npm i webpack webpack-cli --save-dev
+PS [MUKUL-LEGION7] frontend >  npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+PS [MUKUL-LEGION7] frontend >  npm i react react-dom --save-dev
+PS [MUKUL-LEGION7] frontend >  npm i @material-ui/core
+PS [MUKUL-LEGION7] frontend >  npm i @babel/plugin-proposal-class-properties
+PS [MUKUL-LEGION7] frontend >  npm i react-router-dom
+PS [MUKUL-LEGION7] frontend >  npm i @material-ui/icons
+
+
+
+
+# Transactions
+Search Account By Account Number
+
+http://localhost:8030/api/search-by-account-number/<AccountNumber>?Locale=<Locale>
+Token 2ff24a4d1792d8bf631538ebf73706e87e7df2c0
+
+Get Account Hierarchy By Customer Account Id
+http://localhost:8030/api/get-account-hier-by-id/<CustomerAccountId>?Locale=<Locale>
+Token 2ff24a4d1792d8bf631538ebf73706e87e7df2c0
+
+Get Asset By Account Id
+http://localhost:8031/api/get-asset-by-account-id/<AccountId>?AccountClass=<AccountClass>&Locale=<Locale>
+Token 2ff24a4d1792d8bf631538ebf73706e87e7df2c0
+
+Get Order By Account Id
+http://localhost:8032/api/get-orders-by-account-id/<AccountId>?AccountClass=<AccountClass>&Locale=<Locale>
+Token 2ff24a4d1792d8bf631538ebf73706e87e7df2c0
+
+Get Invoice By Billing Account Id
+http://localhost:8033/api/get-invoices-by-billingaccount-id/<BillingAccountId>?Locale=<Locale>
+Token 2ff24a4d1792d8bf631538ebf73706e87e7df2c0
+
+
+http://localhost:8031/api/get-asset-by-pav/<PAV>?Locale=<Locale>

@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8034:8000
+        volumes:
+            - .:/app
+networks:
+    default:
+        name: tele2corp
